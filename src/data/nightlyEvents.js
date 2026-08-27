@@ -20,7 +20,7 @@ export const nightlyEvents = [
     title: "ARC2 Rally Program",
     description: "Our flagship rally platform — engineered for accessible, top-tier American rally competition.",
     nextDate: "American Rally",
-    image: "/images/venue/tng-main-1.jpg",
+    image: "/images/jrd/arc2-side.jpg",
     link: CONTACT_URL,
   },
   {
@@ -29,7 +29,7 @@ export const nightlyEvents = [
     title: "Engineering Services",
     description: "Precision engineering and design consultation — from concept through race-ready hardware.",
     nextDate: "Design & Build",
-    image: "/images/venue/ven02.jpg",
+    image: "/images/jrd/evo-studio.jpg",
     link: CONTACT_URL,
   },
   {
@@ -38,7 +38,7 @@ export const nightlyEvents = [
     title: "Racecar Fabrication",
     description: "In-house builds, setup, and diagnostics — championship-caliber preparation for rally and race cars.",
     nextDate: "Builds & Setup",
-    image: "/images/venue/ven05.jpg",
+    image: "/images/jrd/circuit-56b.jpg",
     link: CONTACT_URL,
   },
   {
@@ -47,7 +47,7 @@ export const nightlyEvents = [
     title: "Performance Parts",
     description: "Precision equipment and performance platforms from our technology partners, ready to ship.",
     nextDate: "Shop Parts",
-    image: "/images/venue/ven08.jpg",
+    image: "/images/jrd/steering-wheel.jpg",
     link: CONTACT_URL,
   },
   {
@@ -56,7 +56,7 @@ export const nightlyEvents = [
     title: "Trackside Support",
     description: "Full trackside and testing support for race weekends — arrive, drive, and let the crew handle the rest.",
     nextDate: "Race Weekends",
-    image: "/images/venue/ven09.jpg",
+    image: "/images/jrd/rally-mitsubishi.jpg",
     link: CONTACT_URL,
   },
   {
@@ -65,7 +65,7 @@ export const nightlyEvents = [
     title: "Sponsorship Activation",
     description: "Customized branding opportunities at high-visibility rally events — your brand, on the stage.",
     nextDate: "Brand Exposure",
-    image: "/images/venue/ven11.jpg",
+    image: "/images/jrd/rally-forest.jpg",
     link: CONTACT_URL,
   },
 ];

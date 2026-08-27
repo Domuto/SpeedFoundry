@@ -7,15 +7,15 @@ import Reveal from "./Reveal.jsx";
  * pointed at the real profile.
  */
 const IMAGES = [
-  "/images/venue/ven01.jpg",
-  "/images/venue/ven02.jpg",
-  "/images/venue/ven03.jpg",
-  "/images/venue/ven04.jpg",
-  "/images/venue/ven06.jpg",
-  "/images/venue/ven07.jpg",
-  "/images/venue/ven08.jpg",
-  "/images/venue/ven10.jpg",
-  "/images/venue/tng-main-1.jpg",
+  "/images/jrd/circuit-56a.jpg",
+  "/images/jrd/circuit-56b.jpg",
+  "/images/jrd/circuit-56c.jpg",
+  "/images/jrd/circuit-56d.jpg",
+  "/images/jrd/rally-dust-evo.jpg",
+  "/images/jrd/rally-peugeot.jpg",
+  "/images/jrd/rally-mitsubishi.jpg",
+  "/images/jrd/rally-action.jpg",
+  "/images/jrd/arc2-front.jpg",
 ];
 
 const INSTAGRAM_URL = "https://www.instagram.com/jrd.motorsport";

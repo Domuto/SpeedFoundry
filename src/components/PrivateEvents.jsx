@@ -11,7 +11,7 @@ const SPOTLIGHTS = [
     n: "001",
     name: "ARC2 Testing with Marcus Grönholm",
     category: "Rally Program",
-    image: "/images/venue/tng-main-2.jpg",
+    image: "/images/jrd/arc2-action.jpg",
     copy: "JRD Motorsport completed a grueling two-day test of the ARC2 rally car with two-time FIA World Rally Champion Marcus Grönholm behind the wheel — a major milestone in what we believe is the future of accessible, top-tier American rally competition.",
     link: "mailto:info@jrdmotorsport.com",
     linkLabel: "Ask About ARC2",
@@ -20,7 +20,7 @@ const SPOTLIGHTS = [
     n: "002",
     name: "Racecar Consultation & Management",
     category: "Builds & Ownership",
-    image: "/images/venue/ven03.jpg",
+    image: "/images/jrd/circuit-56d.jpg",
     copy: "Discover the epitome of motorsport engineering and racecar build consultation. From sourcing your platform to setup, maintenance, and full program management — pricing is quoted individually.",
     link: "#contact",
     linkLabel: "Inquire About Your Build",
@@ -30,7 +30,7 @@ const SPOTLIGHTS = [
     n: "003",
     name: "Partner Race Products",
     category: "Performance Parts",
-    image: "/images/venue/ven07.jpg",
+    image: "/images/jrd/circuit-56e.jpg",
     copy: "Performance platforms, precision equipment, and expert engineering services — designed to set the standard. Shop parts from our technology partners or ask us to spec a build.",
     link: "#contact",
     linkLabel: "Shop Partner Products",
@@ -39,12 +39,12 @@ const SPOTLIGHTS = [
 ];
 
 const SAMPLE_MENU = [
-  { src: "/images/venue/ven01.jpg", alt: "JRD Motorsport on the stage" },
-  { src: "/images/venue/ven04.jpg", alt: "Rally weekend action" },
-  { src: "/images/venue/ven06.jpg", alt: "ARC2 platform at speed" },
-  { src: "/images/venue/ven10.jpg", alt: "Shop and fabrication" },
-  { src: "/images/venue/ven12.jpg", alt: "Team at work" },
-  { src: "/images/venue/ven13.jpg", alt: "Trackside moments" },
+  { src: "/images/jrd/rally-vintage.jpg", alt: "JRD Motorsport rally car" },
+  { src: "/images/jrd/rally-silver.jpg", alt: "Rally weekend action" },
+  { src: "/images/jrd/rally-dust-a.jpg", alt: "Rally car at speed" },
+  { src: "/images/jrd/rally-tarmac.jpg", alt: "On the circuit" },
+  { src: "/images/jrd/rally-red.jpg", alt: "Special stage" },
+  { src: "/images/jrd/rally-dust-b.jpg", alt: "Trackside moments" },
 ];
 
 export default function PrivateEvents() {

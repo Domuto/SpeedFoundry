@@ -24,8 +24,8 @@ export default function Story() {
             <Reveal delay={120}>
               <div className="mt-10 hidden overflow-hidden lg:block">
                 <img
-                  src="/images/venue/tng-main-3.jpg"
-                  alt="JRD Motorsport crew at work"
+                  src="/images/jrd/cockpit.jpg"
+                  alt="Inside a JRD Motorsport rally car"
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>

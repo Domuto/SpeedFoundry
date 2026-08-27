@@ -55,16 +55,11 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex cursor-pointer items-center gap-3 text-left"
-            aria-label="Back to top"
+            className="flex cursor-pointer items-center gap-2 text-left"
+            aria-label="JRD Motorsport — back to top"
           >
-            <img src="/images/logo.png" alt="JRD Motorsport logo" className="h-9 w-auto" />
-            <span>
-              <span className="text-sm font-medium uppercase tracking-[0.3em] text-bone">
-                JRD Motorsport
-              </span>
-              <span className="ml-2 text-[10px] uppercase tracking-[0.3em] text-gold">GA</span>
-            </span>
+            <img src="/images/jrd-mark.png" alt="JRD Motorsport" className="h-7 w-auto" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-gold">GA</span>
           </button>
 
           {/* Desktop links */}
@@ -114,11 +109,9 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between border-b border-bone/10 px-6 py-5">
-          <span className="flex items-center gap-3">
-            <img src="/images/logo.png" alt="" className="h-8 w-auto" />
-            <span className="text-sm uppercase tracking-[0.3em] text-bone">
-              JRD Motorsport <span className="text-[10px] text-gold">GA</span>
-            </span>
+          <span className="flex items-center gap-2">
+            <img src="/images/jrd-mark.png" alt="JRD Motorsport" className="h-6 w-auto" />
+            <span className="text-[10px] uppercase tracking-[0.3em] text-gold">GA</span>
           </span>
           <button
             onClick={() => setOpen(false)}

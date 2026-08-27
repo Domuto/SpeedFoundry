@@ -113,8 +113,8 @@ export default function PlanVisit() {
         <Reveal delay={150} className="mt-20">
           <div className="relative h-72 overflow-hidden md:h-96">
             <img
-              src="/images/venue/ven14.jpg"
-              alt="JRD Motorsport shop in Hoschton, GA"
+              src="/images/jrd/circuit-56b.jpg"
+              alt="JRD Motorsport — Hoschton, Georgia"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-ink/30" />

@@ -31,15 +31,11 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <img src="/images/logo.png" alt="JRD Motorsport logo" className="h-16 w-auto" />
-            <p className="mt-4">
-              <span className="text-sm font-medium uppercase tracking-[0.3em] text-bone">
-                JRD Motorsport
-              </span>
-              <span className="ml-2 text-[10px] uppercase tracking-[0.3em] text-gold">
-                GA
-              </span>
-            </p>
+            <img
+              src="/images/jrd-logo.png"
+              alt="JRD Motorsport"
+              className="h-auto w-[280px] max-w-full"
+            />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand/70">
               A motorsport engineering company — the ARC2 rally platform,
               engineering services, and performance parts, based in

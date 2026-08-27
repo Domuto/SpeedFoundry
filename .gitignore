@@ -1,4 +1,7 @@
 node_modules/
 dist/
+.vercel/
+.DS_Storenode_modules/
+dist/
 .DS_Store
 .vscode/

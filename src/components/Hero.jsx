@@ -26,7 +26,12 @@ function StarIcon() {
 }
 
 export default function Hero({ ready }) {
-  const [showVideo, setShowVideo] = useState(true);
+  const [view, setView] = useState("rally");
+
+  const heroSrc =
+    view === "rally"
+      ? "/images/jrd/rally-dust-evo.jpg"
+      : "/images/jrd/circuit-56a.jpg";
 
   const scrollTo = (selector) =>
     document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
@@ -42,26 +47,14 @@ export default function Hero({ ready }) {
       id="top"
       className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden"
     >
-      {/* Electric backdrop + racing video/photo + color veils */}
+      {/* Electric backdrop + JRD racing photo + color veils */}
       <div className="hero-graphic absolute inset-0" />
-      {showVideo ? (
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/images/caevid.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-        />
-      ) : (
-        <img
-          className="absolute inset-0 h-full w-full object-cover"
-          src="/images/venue/tng-main-2.jpg"
-          alt=""
-          aria-hidden="true"
-        />
-      )}
+      <img
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
+        src={heroSrc}
+        alt=""
+        aria-hidden="true"
+      />
       <div className="absolute inset-0 bg-blue/30 mix-blend-multiply" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/20 to-ink/70" />
 
@@ -144,30 +137,30 @@ export default function Hero({ ready }) {
           Hoschton, GA
         </p>
 
-        {/* Understated video / photo switch */}
+        {/* Understated rally / circuit switch */}
         <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em]">
           <button
-            onClick={() => setShowVideo(true)}
-            aria-pressed={showVideo}
+            onClick={() => setView("rally")}
+            aria-pressed={view === "rally"}
             className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-              showVideo
+              view === "rally"
                 ? "border-gold text-bone"
                 : "border-transparent text-bone/40 hover:text-bone/70"
             }`}
           >
-            Video
+            Rally
           </button>
           <span className="text-bone/30">/</span>
           <button
-            onClick={() => setShowVideo(false)}
-            aria-pressed={!showVideo}
+            onClick={() => setView("circuit")}
+            aria-pressed={view === "circuit"}
             className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-              !showVideo
+              view === "circuit"
                 ? "border-gold text-bone"
                 : "border-transparent text-bone/40 hover:text-bone/70"
             }`}
           >
-            Photo
+            Circuit
           </button>
         </div>
 
@@ -184,27 +177,27 @@ export default function Hero({ ready }) {
         )}
       >
         <button
-          onClick={() => setShowVideo(true)}
-          aria-pressed={showVideo}
+          onClick={() => setView("rally")}
+          aria-pressed={view === "rally"}
           className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-            showVideo
+            view === "rally"
               ? "border-gold text-bone"
               : "border-transparent text-bone/40"
           }`}
         >
-          Video
+          Rally
         </button>
         <span className="text-bone/30">/</span>
         <button
-          onClick={() => setShowVideo(false)}
-          aria-pressed={!showVideo}
+          onClick={() => setView("circuit")}
+          aria-pressed={view === "circuit"}
           className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-            !showVideo
+            view === "circuit"
               ? "border-gold text-bone"
               : "border-transparent text-bone/40"
           }`}
         >
-          Photo
+          Circuit
         </button>
       </div>
     </section>

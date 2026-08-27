@@ -29,7 +29,7 @@ export default function Loader({ onDone }) {
       {/* Background image + dark veil */}
       <img
         className="absolute inset-0 h-full w-full object-cover"
-        src="/images/venue/tng-main-1.jpg"
+        src="/images/jrd/rally-peugeot.jpg"
         alt=""
         aria-hidden="true"
       />
@@ -37,15 +37,11 @@ export default function Loader({ onDone }) {
 
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center">
         <img
-          src="/images/logo.png"
-          alt="JRD Motorsport logo"
-          className="loader__label h-24 w-auto md:h-32"
+          src="/images/jrd-logo.png"
+          alt="JRD Motorsport"
+          className="loader__title w-64 md:w-96"
         />
         <p className="loader__label label">Hoschton, GA</p>
-
-        <h1 className="loader__title font-display text-5xl uppercase tracking-wide text-bone md:text-7xl">
-          JRD <span className="text-gold">Motorsport</span>
-        </h1>
 
         <span className="loader__line block h-px w-40 bg-gold/70 md:w-56" />
       </div>
