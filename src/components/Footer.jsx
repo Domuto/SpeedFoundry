@@ -1,27 +1,30 @@
+import Wordmark from "./Wordmark.jsx";
+import { SHOP_URL as SHOP_URL_SHARED, shopPath } from "../data/shop.js";
+
 /**
  * Footer — address, quick links, socials, copyright.
  */
 const YEAR = new Date().getFullYear();
 
+const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeWJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
+
 const EXPLORE = [
-  { label: "Services", href: "#events" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Programs", href: "#featured" },
-  { label: "Find Us", href: "#visit" },
+  { label: "About", href: "#about" },
+  { label: "Why Us", href: "#services" },
+  { label: "Merch", href: "#merch" },
+  { label: "FAQ", href: "#faq" },
 ];
 
-const VENUE = [
-  { label: "About", href: "#about" },
-  { label: "The Shop", href: "#spaces" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+const SHOP = [
+  { label: "Engine", href: shopPath("/collections/engine") },
+  { label: "Exhaust", href: shopPath("/collections/exhaust") },
+  { label: "Suspension", href: shopPath("/collections/suspension-1") },
+  { label: "Intakes", href: shopPath("/collections/intakes") },
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://www.instagram.com/jrd.motorsport" },
-  { label: "Facebook", href: "https://www.facebook.com/JRDMotorsport/" },
-  { label: "X", href: "https://x.com/JRDRally" },
-  { label: "Youtube", href: "https://www.youtube.com/channel/UCQzKf7wH08HfffoOCOHrHyw" },
+  { label: "Instagram", href: "https://www.instagram.com/speedfoundry/" },
+  { label: "Online Store", href: SHOP_URL_SHARED },
 ];
 
 export default function Footer() {
@@ -31,26 +34,24 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <img
-              src="/images/jrd-logo.png"
-              alt="JRD Motorsport"
-              className="h-auto w-[280px] max-w-full"
-            />
+            <Wordmark stacked={false} className="text-3xl" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand/70">
-              A motorsport engineering company — the ARC2 rally platform,
-              engineering services, and performance parts, based in
-              Hoschton, GA.
+              A performance parts shop in Peachtree Corners, Georgia —
+              engine, exhaust, suspension, and intakes with outstanding
+              service, exclusive pricing, and real industry expertise.
             </p>
             <p className="mt-6 text-sm text-sand/70">
-              1101 Hwy 124
+              4849 Buford Hwy
               <br />
-              Hoschton, GA 30548
+              Peachtree Corners, GA 30071
             </p>
             <a
-              href="mailto:info@jrdmotorsport.com"
+              href="https://www.instagram.com/speedfoundry/"
+              target="_blank"
+              rel="noreferrer"
               className="mt-2 inline-block text-sm text-gold transition-colors duration-300 hover:text-bone"
             >
-              info@jrdmotorsport.com
+              @speedfoundry
             </a>
           </div>
 
@@ -71,14 +72,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Venue links */}
+          {/* Shop links */}
           <div className="md:col-span-2">
-            <p className="label mb-5">Venue</p>
+            <p className="label mb-5">Shop</p>
             <ul className="space-y-1">
-              {VENUE.map((l) => (
+              {SHOP.map((l) => (
                 <li key={l.label}>
                   <a
                     href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="block py-1 text-sm text-sand/70 transition-colors duration-300 hover:text-gold"
                   >
                     {l.label}
@@ -111,21 +114,22 @@ export default function Footer() {
               ))}
             </ul>
             <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-sand/50">
-              Bookings &amp; inquiries:
-              <br />
-              <a
-                href="mailto:info@jrdmotorsport.com"
-                className="normal-case tracking-normal text-sand/70 transition-colors hover:text-gold"
-              >
-                info@jrdmotorsport.com
-              </a>
+              Ready to shop?
             </p>
+            <a
+              href={SHOP_URL_SHARED}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-solid btn-sm mt-3"
+            >
+              Shop Parts
+            </a>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col gap-3 border-t border-bone/10 pt-8 text-[10px] uppercase tracking-[0.25em] text-sand/50 md:flex-row md:items-center md:justify-between">
-          <p>© {YEAR} JRD Motorsport — All rights reserved.</p>
+          <p>© {YEAR} The Speed Foundry — All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a
               href="#top"

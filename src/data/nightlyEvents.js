@@ -1,71 +1,54 @@
 /**
  * ============================================================
- * SERVICES — edit this file to manage the JRD Motorsport lineup.
+ * WHY US — edit this file to manage the value props / advantages.
  * ============================================================
  * Each entry supports:
  *   id          – unique string (used as the React key)
  *   day         – small eyebrow tag above the title
- *   title       – service name
- *   description – one line describing the service
- *   nextDate    – secondary tag shown with the eyebrow
- *   image       – photo for the card
- *   link        – learn-more / inquiry URL
+ *   title       – value-prop name
+ *   description – one or two lines describing it
  */
-const CONTACT_URL = "#contact";
-
 export const nightlyEvents = [
   {
-    id: "arc2-rally-program",
-    day: "Program",
-    title: "ARC2 Rally Program",
-    description: "Our flagship rally platform — engineered for accessible, top-tier American rally competition.",
-    nextDate: "American Rally",
-    image: "/images/jrd/arc2-side.jpg",
-    link: CONTACT_URL,
+    id: "outstanding-service",
+    day: "Service",
+    title: "Outstanding Service",
+    description:
+      "Real humans who know cars, helping you pick the right parts and get them fitted right — before and after the sale.",
   },
   {
-    id: "engineering-services",
-    day: "Engineering",
-    title: "Engineering Services",
-    description: "Precision engineering and design consultation — from concept through race-ready hardware.",
-    nextDate: "Design & Build",
-    image: "/images/jrd/evo-studio.jpg",
-    link: CONTACT_URL,
+    id: "exclusive-pricing",
+    day: "Value",
+    title: "Exclusive Pricing",
+    description:
+      "Direct relationships and smart sourcing mean pricing you won't find on the big-box marketplaces.",
   },
   {
-    id: "racecar-fabrication",
-    day: "Fabrication",
-    title: "Racecar Fabrication",
-    description: "In-house builds, setup, and diagnostics — championship-caliber preparation for rally and race cars.",
-    nextDate: "Builds & Setup",
-    image: "/images/jrd/circuit-56b.jpg",
-    link: CONTACT_URL,
+    id: "industry-expertise",
+    day: "Expertise",
+    title: "Industry Expertise",
+    description:
+      "Years in the performance world behind every recommendation — no guesswork, just parts that work together.",
   },
   {
-    id: "performance-parts",
-    day: "Parts",
-    title: "Performance Parts",
-    description: "Precision equipment and performance platforms from our technology partners, ready to ship.",
-    nextDate: "Shop Parts",
-    image: "/images/jrd/steering-wheel.jpg",
-    link: CONTACT_URL,
+    id: "curated-catalog",
+    day: "Catalog",
+    title: "Curated Catalog",
+    description:
+      "Engine, exhaust, suspension, and intakes — hand-picked brands and components, all in one place.",
   },
   {
-    id: "trackside-support",
-    day: "Trackside",
-    title: "Trackside Support",
-    description: "Full trackside and testing support for race weekends — arrive, drive, and let the crew handle the rest.",
-    nextDate: "Race Weekends",
-    image: "/images/jrd/rally-mitsubishi.jpg",
-    link: CONTACT_URL,
+    id: "build-guidance",
+    day: "Guidance",
+    title: "Build Guidance",
+    description:
+      "Planning a stage-by-stage build? We'll help you sequence upgrades so every dollar adds up to power.",
   },
   {
-    id: "sponsorship-activation",
-    day: "Partners",
-    title: "Sponsorship Activation",
-    description: "Customized branding opportunities at high-visibility rally events — your brand, on the stage.",
-    nextDate: "Brand Exposure",
-    image: "/images/jrd/rally-forest.jpg",
-    link: CONTACT_URL,
+    id: "local-shop",
+    day: "Local",
+    title: "Peachtree Corners",
+    description:
+      "A local Georgia shop on Buford Highway — stop in, talk shop, and leave with the right ingredients.",
   },
 ];

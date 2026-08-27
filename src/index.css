@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 /* ============================================================
-   JRD MOTORSPORT — DESIGN TOKENS (Culture Haus aesthetic)
-   Electric cobalt blue + cream + orange-coral, heavy poster type.
-   Edit brand colors and fonts here. Every component pulls from
-   these values (e.g. bg-ink, text-gold, font-display).
+   THE SPEED FOUNDRY — DESIGN TOKENS
+   Carbon graphite + off-white + molten blaze-red forge accent,
+   heavy condensed poster type. Edit brand colors and fonts here.
+   Every component pulls from these tokens (bg-ink, text-gold, …).
    ============================================================ */
 @theme {
-  --color-ink: #0c1030;      /* deep navy page background            */
-  --color-charcoal: #141a42; /* raised navy surfaces / bands         */
-  --color-smoke: #1c2452;    /* hover surfaces                       */
-  --color-blue: #2438db;     /* electric cobalt (hero + CTA bands)   */
-  --color-bone: #efeadd;     /* cream off-white primary text         */
-  --color-sand: #b7bedd;     /* cool periwinkle, secondary text      */
-  --color-gold: #f15a29;     /* orange-coral accent                  */
-  --color-amber: #e7b24c;    /* warm gold, small icons               */
+  --color-ink: #0a0a0b;      /* near-black graphite page background   */
+  --color-charcoal: #121316; /* raised carbon surfaces / bands        */
+  --color-smoke: #1c1e22;    /* hover surfaces                        */
+  --color-blue: #16181c;     /* deep steel (hero base tone)           */
+  --color-bone: #f2f0ec;     /* off-white primary text                */
+  --color-sand: #9aa0ac;     /* cool steel gray, secondary text       */
+  --color-gold: #e11900;     /* molten blaze-red accent (CTA)         */
+  --color-amber: #f5a524;    /* forge amber, small icons              */
 
   --font-display: "Anton", "Archivo", sans-serif;
   --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -114,24 +114,23 @@ body {
   );
 }
 
-/* ---------------- Electric hero backdrop (Culture Haus) ---------------- */
+/* ---------------- Forge hero backdrop (molten carbon) ---------------- */
 .hero-graphic {
   background:
-    radial-gradient(120% 90% at 82% 18%, rgba(241, 90, 41, 0.38), transparent 55%),
-    radial-gradient(100% 80% at 12% 92%, rgba(231, 178, 76, 0.18), transparent 60%),
+    radial-gradient(120% 90% at 82% 14%, rgba(225, 25, 0, 0.42), transparent 55%),
+    radial-gradient(100% 80% at 8% 96%, rgba(245, 165, 36, 0.16), transparent 60%),
     var(--color-blue);
 }
 .hero-graphic::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: repeating-radial-gradient(
-    circle at 80% 52%,
-    transparent 0 58px,
-    rgba(239, 234, 221, 0.07) 58px 60px
-  );
-  -webkit-mask: radial-gradient(circle at 80% 52%, #000 0%, transparent 72%);
-  mask: radial-gradient(circle at 80% 52%, #000 0%, transparent 72%);
+  /* Faint carbon-weave diagonal grid */
+  background:
+    repeating-linear-gradient(45deg, transparent 0 13px, rgba(242, 240, 236, 0.045) 13px 14px),
+    repeating-linear-gradient(-45deg, transparent 0 13px, rgba(242, 240, 236, 0.045) 13px 14px);
+  -webkit-mask: radial-gradient(circle at 80% 40%, #000 0%, transparent 78%);
+  mask: radial-gradient(circle at 80% 40%, #000 0%, transparent 78%);
   pointer-events: none;
 }
 

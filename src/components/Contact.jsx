@@ -9,7 +9,7 @@ import Reveal from "./Reveal.jsx";
  * small serverless function — the UI won't need to change.
  */
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", promoter: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", interest: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
 
   const update = (field) => (e) => setForm((f) => ({ ...f, [field]: e.target.value }));
@@ -32,20 +32,24 @@ export default function Contact() {
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-5 font-display text-4xl font-light leading-[1.1] text-bone md:text-6xl">
-                Ready for the <span className="text-gold">stage?</span>
+                Let's build <span className="text-gold">something.</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-7 max-w-md text-sm leading-relaxed text-sand/75 md:text-base">
-                Let's talk. Send a web inquiry about the ARC2 program,
-                engineering services, or performance parts — our team will
-                follow up.
+                Questions on fitment, pricing, or a full build? Send us a note
+                or slide into the DMs — we'll help you find the right parts.
               </p>
             </Reveal>
             <Reveal delay={280}>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a href="mailto:info@jrdmotorsport.com" className="btn btn-solid">
-                  Email Us
+                <a
+                  href="https://www.instagram.com/speedfoundry/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-solid"
+                >
+                  Message @speedfoundry
                 </a>
               </div>
             </Reveal>
@@ -95,23 +99,24 @@ export default function Contact() {
                     className="w-full border border-bone/25 bg-transparent px-4 py-3.5 text-base tracking-wide text-bone outline-none transition-colors duration-300 placeholder:text-sand/40 focus:border-gold sm:border-0 sm:border-b sm:px-1 sm:py-4 sm:text-sm sm:col-span-2"
                   />
                   <select
-                    value={form.promoter}
-                    onChange={update("promoter")}
+                    value={form.interest}
+                    onChange={update("interest")}
                     aria-label="Interest"
-                    className={`w-full appearance-none border border-bone/25 bg-transparent px-4 py-3.5 text-base tracking-wide outline-none transition-colors duration-300 focus:border-gold sm:border-0 sm:border-b sm:px-1 sm:py-4 sm:text-sm sm:col-span-2 ${form.promoter ? "text-bone" : "text-sand/40"}`}
+                    className={`w-full appearance-none border border-bone/25 bg-transparent px-4 py-3.5 text-base tracking-wide outline-none transition-colors duration-300 focus:border-gold sm:border-0 sm:border-b sm:px-1 sm:py-4 sm:text-sm sm:col-span-2 ${form.interest ? "text-bone" : "text-sand/40"}`}
                   >
                     <option value="" className="bg-ink text-sand">I'm interested in… (optional)</option>
-                    <option value="ARC2 Rally Program" className="bg-ink text-bone">ARC2 Rally Program</option>
-                    <option value="Engineering Services" className="bg-ink text-bone">Engineering Services</option>
-                    <option value="Racecar Consultation" className="bg-ink text-bone">Racecar Consultation</option>
-                    <option value="Performance Parts" className="bg-ink text-bone">Performance Parts</option>
-                    <option value="Sponsorship Activation" className="bg-ink text-bone">Sponsorship Activation</option>
+                    <option value="Engine" className="bg-ink text-bone">Engine</option>
+                    <option value="Exhaust" className="bg-ink text-bone">Exhaust</option>
+                    <option value="Suspension" className="bg-ink text-bone">Suspension</option>
+                    <option value="Intakes" className="bg-ink text-bone">Intakes</option>
+                    <option value="Full Build" className="bg-ink text-bone">Full Build</option>
+                    <option value="Merch" className="bg-ink text-bone">Merch</option>
                   </select>
                   <textarea
                     rows={4}
                     value={form.message}
                     onChange={update("message")}
-                    placeholder="Tell us about your goals on the stage"
+                    placeholder="Tell us about your car and what you're after"
                     aria-label="Message"
                     className="w-full resize-none border border-bone/25 bg-transparent px-4 py-3.5 text-base tracking-wide text-bone outline-none transition-colors duration-300 placeholder:text-sand/40 focus:border-gold sm:border-0 sm:border-b sm:px-1 sm:py-4 sm:text-sm sm:col-span-2"
                   />

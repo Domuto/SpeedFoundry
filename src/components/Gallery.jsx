@@ -2,23 +2,19 @@ import Reveal from "./Reveal.jsx";
 
 /**
  * N° 005 — The Feed.
- * Instagram-style square grid of real venue photography. Swap the
- * paths in IMAGES for updated photos, and INSTAGRAM_URL is already
- * pointed at the real profile.
+ * Grid of shop imagery linking to the real Instagram profile. Swap the
+ * paths in IMAGES for updated photos as they come in.
  */
 const IMAGES = [
-  "/images/jrd/circuit-56a.jpg",
-  "/images/jrd/circuit-56b.jpg",
-  "/images/jrd/circuit-56c.jpg",
-  "/images/jrd/circuit-56d.jpg",
-  "/images/jrd/rally-dust-evo.jpg",
-  "/images/jrd/rally-peugeot.jpg",
-  "/images/jrd/rally-mitsubishi.jpg",
-  "/images/jrd/rally-action.jpg",
-  "/images/jrd/arc2-front.jpg",
+  "/images/sf/engine.jpg",
+  "/images/sf/exhaust.jpg",
+  "/images/sf/suspension.jpg",
+  "/images/sf/intakes.jpg",
+  "/images/sf/merch-tee-front.png",
+  "/images/sf/merch-tank.jpg",
 ];
 
-const INSTAGRAM_URL = "https://www.instagram.com/jrd.motorsport";
+const INSTAGRAM_URL = "https://www.instagram.com/speedfoundry/";
 
 export default function Gallery() {
   return (
@@ -31,7 +27,7 @@ export default function Gallery() {
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-5 font-display text-4xl font-light text-bone md:text-6xl">
-              Scenes from the stage.
+              From the shop floor.
             </h2>
           </Reveal>
         </div>
@@ -42,7 +38,7 @@ export default function Gallery() {
             rel="noreferrer"
             className="group inline-flex items-center gap-3 border-b border-bone/20 pb-1 text-[11px] uppercase tracking-[0.3em] text-bone transition-colors duration-300 hover:border-gold hover:text-gold"
           >
-            Follow Along
+            @speedfoundry
             <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
               <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M2 10L10 2M4 2h6v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -64,7 +60,7 @@ export default function Gallery() {
             >
               <img
                 src={src}
-                alt={`JRD Motorsport — gallery ${i + 1}`}
+                alt={`The Speed Foundry — gallery ${i + 1}`}
                 className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-colors duration-500 group-hover:bg-ink/45">

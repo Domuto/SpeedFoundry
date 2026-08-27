@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
+import Wordmark from "./Wordmark.jsx";
+import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
 
 /**
  * Fixed navigation.
  *  - Transparent over the hero; solid + hairline border once you scroll.
  *  - Every link scrolls to its section id.
- *  - Mobile: fullscreen overlay menu with staggered serif links.
+ *  - Mobile: fullscreen overlay menu with staggered display links.
  *
  * Edit the LINKS array to add / remove nav items.
  */
+const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeWJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
+
 const LINKS = [
   { label: "About", value: "#about" },
-  { label: "The Shop", value: "#spaces" },
-  { label: "Services", value: "#events" },
+  { label: "Shop", value: "#categories" },
+  { label: "Why Us", value: "#services" },
+  { label: "Merch", value: "#merch" },
   { label: "Gallery", value: "#gallery" },
-  { label: "Programs", value: "#featured" },
   { label: "FAQ", value: "#faq" },
 ];
 
@@ -56,10 +60,9 @@ export default function Navbar() {
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex cursor-pointer items-center gap-2 text-left"
-            aria-label="JRD Motorsport — back to top"
+            aria-label="The Speed Foundry — back to top"
           >
-            <img src="/images/jrd-mark.png" alt="JRD Motorsport" className="h-7 w-auto" />
-            <span className="text-[10px] uppercase tracking-[0.3em] text-gold">GA</span>
+            <Wordmark stacked={false} className="text-xl md:text-2xl" />
           </button>
 
           {/* Desktop links */}
@@ -77,16 +80,14 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-5">
-            {/* About Us (desktop) */}
+            {/* Shop Parts (desktop) */}
             <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo("#about");
-              }}
-              className="btn btn-ghost btn-sm hidden md:inline-flex"
+              href={SHOP_URL_SHARED}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-solid btn-sm hidden md:inline-flex"
             >
-              About Us
+              Shop Parts
             </a>
 
             {/* Hamburger (mobile) */}
@@ -109,10 +110,7 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between border-b border-bone/10 px-6 py-5">
-          <span className="flex items-center gap-2">
-            <img src="/images/jrd-mark.png" alt="JRD Motorsport" className="h-6 w-auto" />
-            <span className="text-[10px] uppercase tracking-[0.3em] text-gold">GA</span>
-          </span>
+          <Wordmark stacked={false} className="text-lg" />
           <button
             onClick={() => setOpen(false)}
             className="cursor-pointer text-[11px] uppercase tracking-[0.3em] text-sand transition-colors hover:text-gold"
@@ -143,9 +141,14 @@ export default function Navbar() {
 
         <div className="border-t border-bone/10 px-8 py-6">
           <p className="label mb-2">Visit</p>
-          <p className="text-sm text-sand/80">1101 Hwy 124 — Hoschton, GA</p>
-          <a href="mailto:info@jrdmotorsport.com" className="mt-1 block text-sm text-gold">
-            info@jrdmotorsport.com
+          <p className="text-sm text-sand/80">4849 Buford Hwy — Peachtree Corners, GA</p>
+          <a
+            href={SHOP_URL_SHARED}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-solid btn-sm mt-4"
+          >
+            Shop Parts
           </a>
         </div>
       </div>

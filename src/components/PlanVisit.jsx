@@ -1,33 +1,35 @@
 import Reveal from "./Reveal.jsx";
+import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
 
 /**
- * N° 006 — Plan Your Visit.
- * Concierge-style section: statement + action buttons on the left,
- * hairline detail rows (address / parking / reservations / contact)
- * on the right, and a full-width arrival image below.
+ * N° 006 — Visit / Find Us.
+ * Statement + action buttons on the left, hairline detail rows
+ * (address / hours / shop online / follow) on the right, and a
+ * full-width image below.
  */
 const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=1101+Hwy+124,+Hoschton,+GA+30548";
-const PARKING_URL =
-  "https://www.google.com/maps/search/?api=1&query=1101+Hwy+124+Hoschton+GA+30548";
+  "https://www.google.com/maps/dir/?api=1&destination=4849+Buford+Hwy,+Peachtree+Corners,+GA+30071";
+const MAP_URL =
+  "https://www.google.com/maps/search/?api=1&query=4849+Buford+Hwy+Peachtree+Corners+GA+30071";
+const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeGJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
 
 const DETAILS = [
   {
     k: "Location",
-    lines: ["1101 Hwy 124", "Hoschton, GA 30548"],
+    lines: ["4849 Buford Hwy", "Peachtree Corners, GA 30071"],
   },
   {
-    k: "Rally Events",
-    lines: ["Find us in the paddock at American Rally Championship events.", "Stop by the JRD trailer and say hello."],
+    k: "Shop Online",
+    lines: ["Browse the full catalog and check out securely at", "thespeedfoundry-cuvfktu9.myshopify.com."],
   },
   {
-    k: "Bookings",
-    lines: ["Email us for engineering, fabrication, or parts inquiries.", "Consultations and builds are quoted individually."],
+    k: "Fitment Help",
+    lines: ["Not sure a part fits your build?", "Message us and we'll confirm before you buy."],
   },
   {
-    k: "Contact",
-    lines: ["info@jrdmotorsport.com"],
-    mail: true,
+    k: "Follow",
+    lines: ["@speedfoundry on Instagram"],
+    insta: true,
   },
 ];
 
@@ -43,14 +45,13 @@ export default function PlanVisit() {
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-5 font-display text-4xl font-light leading-[1.1] text-bone md:text-6xl">
-                Consider it <span className="text-gold">handled.</span>
+                Stop by the <span className="text-gold">shop.</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-7 max-w-md text-sm leading-relaxed text-sand/75 md:text-base">
-                Headquartered in Hoschton, Georgia — where the shop, the
-                ARC2 program, and our partner products all come together.
-                The crew handles the rest.
+                Find us on Buford Highway in Peachtree Corners, Georgia — or
+                shop the full catalog online and we'll get your parts moving.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -64,12 +65,12 @@ export default function PlanVisit() {
                   Get Directions
                 </a>
                 <a
-                  href={PARKING_URL}
+                  href={SHOP_URL_SHARED}
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-ghost"
                 >
-                  Shop Info
+                  Shop Parts
                 </a>
               </div>
             </Reveal>
@@ -84,9 +85,11 @@ export default function PlanVisit() {
                     {d.k}
                   </p>
                   <div className="sm:col-span-2">
-                    {d.mail ? (
+                    {d.insta ? (
                       <a
-                        href={`mailto:${d.lines[0]}`}
+                        href="https://www.instagram.com/speedfoundry/"
+                        target="_blank"
+                        rel="noreferrer"
                         className="text-base text-bone underline decoration-bone/20 underline-offset-4 transition-colors duration-300 hover:text-gold hover:decoration-gold md:text-lg"
                       >
                         {d.lines[0]}
@@ -109,18 +112,23 @@ export default function PlanVisit() {
           </div>
         </div>
 
-        {/* Full-width arrival image */}
+        {/* Full-width image */}
         <Reveal delay={150} className="mt-20">
           <div className="relative h-72 overflow-hidden md:h-96">
             <img
-              src="/images/jrd/circuit-56b.jpg"
-              alt="JRD Motorsport — Hoschton, Georgia"
+              src="/images/sf/exhaust.jpg"
+              alt="The Speed Foundry — Peachtree Corners, Georgia"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-ink/30" />
-            <p className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-bone/70 md:left-10">
-              1101 Hwy 124 — Hoschton, Georgia
-            </p>
+            <div className="absolute inset-0 bg-ink/40" />
+            <a
+              href={MAP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-bone/80 transition-colors duration-300 hover:text-gold md:left-10"
+            >
+              4849 Buford Hwy — Peachtree Corners, Georgia
+            </a>
           </div>
         </Reveal>
       </div>

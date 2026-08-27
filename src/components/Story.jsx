@@ -1,14 +1,13 @@
 import Reveal from "./Reveal.jsx";
 
 /**
- * N° 001 — The Story.
- * An editorial statement about the venue and a hairline stats row
- * (established / nights weekly / address).
+ * N° 001 — About.
+ * An editorial statement about the shop and a hairline stats row.
  */
 const STATS = [
-  { value: "ARC2", label: "Our flagship rally platform" },
-  { value: "GA", label: "Headquartered in Hoschton, Georgia" },
-  { value: "SWE/USA", label: "Swedish ingenuity, American grit" },
+  { value: "4", label: "Core categories — engine, exhaust, suspension, intakes" },
+  { value: "GA", label: "Rooted in Peachtree Corners, Georgia" },
+  { value: "Pro", label: "Real industry expertise behind every build" },
 ];
 
 export default function Story() {
@@ -19,13 +18,13 @@ export default function Story() {
           {/* Left rail: label + supporting image */}
           <div className="lg:col-span-4">
             <Reveal>
-              <p className="label">N° 001 — The Story</p>
+              <p className="label">N° 001 — About</p>
             </Reveal>
             <Reveal delay={120}>
               <div className="mt-10 hidden overflow-hidden lg:block">
                 <img
-                  src="/images/jrd/cockpit.jpg"
-                  alt="Inside a JRD Motorsport rally car"
+                  src="/images/sf/engine.jpg"
+                  alt="Performance engine components at The Speed Foundry"
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>
@@ -36,29 +35,27 @@ export default function Story() {
           <div className="lg:col-span-8">
             <Reveal>
               <h2 className="font-display text-4xl font-light leading-[1.15] text-bone md:text-5xl lg:text-6xl">
-                Where Swedish ingenuity —{" "}
-                <span className="text-gold">meets American grit,</span>{" "}
-                and unmistakably Georgia.
+                All of the right ingredients —{" "}
+                <span className="text-gold">the right parts,</span>{" "}
+                the right pricing, the right people.
               </h2>
             </Reveal>
 
             <Reveal delay={150}>
               <p className="mt-8 max-w-2xl text-sm leading-relaxed text-sand/80 md:text-base">
-                Based in Hoschton, Georgia, JRD Motorsport is a motorsport
-                engineering company built on precision, performance, and
-                passion. We craft solutions that empower racers and
-                enthusiasts to excel at every turn, both on the track and in
-                the garage.
+                The Speed Foundry is a performance parts shop in Peachtree
+                Corners, Georgia, built for enthusiasts who want to do it
+                right the first time. From bolt-on power to full-send builds,
+                we help you spec the components that actually move the needle.
               </p>
             </Reveal>
 
             <Reveal delay={250}>
               <p className="mt-6 max-w-2xl text-sm leading-relaxed text-sand/60">
-                From our flagship ARC2 rally platform to precision performance
-                parts and expert engineering services, JRD is more than a
-                name — it's a commitment to excellence. We're shaping what it
-                means to lead in performance and innovation, and building an
-                accessible, top-tier American rally competition along the way.
+                Outstanding service, exclusive pricing, and honest industry
+                expertise — that's the whole recipe. Engine, exhaust,
+                suspension, and intakes, curated so you can find everything in
+                one place and get back on the road.
               </p>
             </Reveal>
 

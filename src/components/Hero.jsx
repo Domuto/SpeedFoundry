@@ -1,12 +1,23 @@
 /**
- * Culture Haus–style poster hero.
- * Electric cobalt backdrop with faint concentric line-art + glow,
- * a black label pill, a massive stacked title (second word outlined),
- * a location row, an "OPEN" badge, and two CTAs.
- * `ready` flips true when the Loader finishes — that's what fires
- * the staggered entrance (see .hero-el / .is-in in index.css).
+ * Poster hero for The Speed Foundry.
+ * Molten carbon backdrop with a faint weave grid, a black label pill of
+ * value props, a massive stacked wordmark (FOUNDRY in blaze red), a
+ * location row, and two CTAs. A subtle switcher swaps the backdrop photo
+ * across the four part categories.
+ * `ready` flips true when the Loader finishes — that fires the staggered
+ * entrance (see .hero-el / .is-in in index.css).
  */
 import { useState } from "react";
+import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
+
+const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeWJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
+
+const BACKDROPS = {
+  engine: "/images/sf/engine.jpg",
+  exhaust: "/images/sf/exhaust.jpg",
+  suspension: "/images/sf/suspension.jpg",
+  intakes: "/images/sf/intakes.jpg",
+};
 
 function PinIcon() {
   return (
@@ -26,12 +37,7 @@ function StarIcon() {
 }
 
 export default function Hero({ ready }) {
-  const [view, setView] = useState("rally");
-
-  const heroSrc =
-    view === "rally"
-      ? "/images/jrd/rally-dust-evo.jpg"
-      : "/images/jrd/circuit-56a.jpg";
+  const [view, setView] = useState("engine");
 
   const scrollTo = (selector) =>
     document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
@@ -47,41 +53,39 @@ export default function Hero({ ready }) {
       id="top"
       className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden"
     >
-      {/* Electric backdrop + JRD racing photo + color veils */}
+      {/* Molten carbon backdrop + category photo + veils */}
       <div className="hero-graphic absolute inset-0" />
       <img
-        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
-        src={heroSrc}
+        className="absolute inset-0 h-full w-full object-cover opacity-45 transition-opacity duration-700"
+        src={BACKDROPS[view]}
         alt=""
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-blue/30 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/20 to-ink/70" />
+      <div className="absolute inset-0 bg-ink/50 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/85" />
 
       {/* Content — centered stack */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-32 text-center">
         {/* Badge pill */}
         <div {...anim(100, "mb-8 flex justify-center")}>
           <div className="pill">
-            <span>Motorsport Engineering</span>
+            <span>Outstanding Service</span>
             <span className="text-gold">•</span>
-            <span>ARC2 Rally Program</span>
+            <span>Exclusive Pricing</span>
             <span className="text-gold">•</span>
-            <span>Hoschton, GA</span>
+            <span>Industry Expertise</span>
           </div>
         </div>
 
-        {/* Stacked poster headline: solid over outline */}
+        {/* Stacked poster headline: solid over blaze red */}
         <h1 {...anim(220, "font-display uppercase leading-[0.82] text-bone")}>
-          <span className="block text-[clamp(3rem,11vw,8.5rem)]">
-            JRD
-          </span>
-          <span className="text-outline block text-[clamp(3.5rem,13vw,10rem)]">
-            Motorsport
+          <span className="block text-[clamp(3rem,11vw,8.5rem)]">Speed</span>
+          <span className="block text-gold text-[clamp(3.5rem,13vw,10rem)]">
+            Foundry
           </span>
         </h1>
 
-        {/* Address / open line */}
+        {/* Address / trust line */}
         <div
           {...anim(
             360,
@@ -90,12 +94,12 @@ export default function Hero({ ready }) {
         >
           <span className="inline-flex items-center gap-2">
             <PinIcon />
-            1101 Hwy 124 — Hoschton, GA
+            Peachtree Corners, GA
           </span>
           <span className="hidden h-4 w-px bg-bone/30 sm:block" />
           <span className="inline-flex items-center gap-2">
             <StarIcon />
-            American Rally Championship
+            Performance Parts, Done Right
           </span>
         </div>
 
@@ -106,8 +110,9 @@ export default function Hero({ ready }) {
             "mx-auto mt-7 max-w-xl text-sm leading-relaxed text-bone/80 md:text-base"
           )}
         >
-          Precision engineering, the ARC2 rally platform, and performance
-          parts built where Swedish ingenuity meets American grit.
+          Here you will find all of the right ingredients — engine, exhaust,
+          suspension, and intake upgrades, backed by real industry expertise
+          and exclusive pricing.
         </p>
 
         {/* Buttons */}
@@ -117,16 +122,16 @@ export default function Hero({ ready }) {
             "mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           )}
         >
-          <button onClick={() => scrollTo("#events")} className="btn btn-solid">
-            Our Services
-          </button>
-          <button onClick={() => scrollTo("#about")} className="btn btn-ghost">
-            About Us
+          <a href={SHOP_URL_SHARED} target="_blank" rel="noreferrer" className="btn btn-solid">
+            Shop Parts
+          </a>
+          <button onClick={() => scrollTo("#categories")} className="btn btn-ghost">
+            Browse Categories
           </button>
         </div>
       </div>
 
-      {/* Corner metadata + backdrop toggle (desktop flourish) */}
+      {/* Corner metadata + backdrop switch (desktop flourish) */}
       <div
         {...anim(
           900,
@@ -134,71 +139,57 @@ export default function Hero({ ready }) {
         )}
       >
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-bone/60">
-          Hoschton, GA
+          Peachtree Corners, GA
         </p>
 
-        {/* Understated rally / circuit switch */}
+        {/* Category backdrop switch */}
         <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em]">
-          <button
-            onClick={() => setView("rally")}
-            aria-pressed={view === "rally"}
-            className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-              view === "rally"
-                ? "border-gold text-bone"
-                : "border-transparent text-bone/40 hover:text-bone/70"
-            }`}
-          >
-            Rally
-          </button>
-          <span className="text-bone/30">/</span>
-          <button
-            onClick={() => setView("circuit")}
-            aria-pressed={view === "circuit"}
-            className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-              view === "circuit"
-                ? "border-gold text-bone"
-                : "border-transparent text-bone/40 hover:text-bone/70"
-            }`}
-          >
-            Circuit
-          </button>
+          {Object.keys(BACKDROPS).map((key, i) => (
+            <span key={key} className="flex items-center gap-3">
+              {i > 0 && <span className="text-bone/30">/</span>}
+              <button
+                onClick={() => setView(key)}
+                aria-pressed={view === key}
+                className={`cursor-pointer border-b pb-0.5 capitalize transition-colors duration-300 ${
+                  view === key
+                    ? "border-gold text-bone"
+                    : "border-transparent text-bone/40 hover:text-bone/70"
+                }`}
+              >
+                {key}
+              </button>
+            </span>
+          ))}
         </div>
 
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-bone/60">
-          34.100° N — 83.757° W
+          4849 Buford Hwy
         </p>
       </div>
 
-      {/* Mobile backdrop toggle — same understated style, centered */}
+      {/* Mobile backdrop switch — centered */}
       <div
         {...anim(
           900,
           "absolute bottom-6 z-10 flex w-full items-center justify-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] lg:hidden"
         )}
       >
-        <button
-          onClick={() => setView("rally")}
-          aria-pressed={view === "rally"}
-          className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-            view === "rally"
-              ? "border-gold text-bone"
-              : "border-transparent text-bone/40"
-          }`}
-        >
-          Rally
-        </button>
-        <span className="text-bone/30">/</span>
-        <button
-          onClick={() => setView("circuit")}
-          aria-pressed={view === "circuit"}
-          className={`cursor-pointer border-b pb-0.5 transition-colors duration-300 ${
-            view === "circuit"
-              ? "border-gold text-bone"
-              : "border-transparent text-bone/40"
-          }`}
-        >
-          Circuit
-        </button>
+        {Object.keys(BACKDROPS).map((key, i) => (
+          <span key={key} className="flex items-center gap-3">
+            {i > 0 && <span className="text-bone/30">/</span>}
+            <button
+              onClick={() => setView(key)}
+              aria-pressed={view === key}
+              className={`cursor-pointer border-b pb-0.5 capitalize transition-colors duration-300 ${
+                view === key
+                  ? "border-gold text-bone"
+                  : "border-transparent text-bone/40"
+              }`}
+            >
+              {key}
+            </button>
+          </span>
+        ))}
       </div>
     </section>
   );

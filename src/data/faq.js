@@ -2,40 +2,40 @@
  * ============================================================
  * FAQ DATA — edit this file to manage the questions & answers.
  * ============================================================
- * Common questions JRD Motorsport gets — update with the shop's
- * exact policies and pricing whenever they're confirmed.
+ * Common questions The Speed Foundry gets — update with the shop's
+ * exact policies, hours, and pricing whenever they're confirmed.
  */
 export const faq = [
   {
-    q: "Where is JRD Motorsport based?",
-    a: "We're based in Hoschton, Georgia, at 1101 Hwy 124. We support racers and enthusiasts across the Southeast and beyond.",
+    q: "Where is The Speed Foundry located?",
+    a: "We're on Buford Highway at 4849 Buford Hwy, Peachtree Corners, GA 30071. You can shop with us in person or online.",
   },
   {
-    q: "What is the ARC2 program?",
-    a: "ARC2 is our flagship rally platform, developed with input from world-class drivers including two-time FIA World Rally Champion Marcus Grönholm — built for accessible, top-tier American rally competition.",
+    q: "What kind of parts do you carry?",
+    a: "Performance upgrades across four core categories — engine, exhaust, suspension, and intakes — from brands we trust, curated so the parts actually work together.",
   },
   {
-    q: "Do I need racing experience to work with you?",
-    a: "Not at all. Whether you're building your first rally car or refining a proven program, our team meets you where you are with engineering, fabrication, and hands-on support.",
+    q: "Can you help me pick the right parts?",
+    a: "Absolutely. Outstanding service is the whole point — tell us your car and your goals and we'll help you spec components that fit and deliver real gains.",
   },
   {
-    q: "Can you help me build or buy a rally or race car?",
-    a: "Yes — racecar consultation and management is one of our core services. We'll guide the build, sourcing, setup, and ongoing maintenance of your platform.",
+    q: "Do you offer better pricing than the big marketplaces?",
+    a: "Yes. Direct relationships and smart sourcing let us offer exclusive pricing you won't find on the big-box sites.",
   },
   {
-    q: "Do you sell performance parts?",
-    a: "Absolutely. We carry precision performance parts and equipment from our technology partners, and can help you spec the right components for your build.",
+    q: "Can I order online?",
+    a: "Yes — browse the full catalog and check out securely at thespeedfoundry-cuvfktu9.myshopify.com. Use the Shop Parts button anywhere on this site.",
   },
   {
-    q: "What does your engineering service include?",
-    a: "Vehicle setup, fabrication, diagnostics, and design consultation — everything needed to take a project from concept to the stage.",
+    q: "Do you sell merch?",
+    a: "We do — tees and tank tops are available in the Swag section. Wear the Foundry.",
   },
   {
-    q: "How do sponsorship opportunities work?",
-    a: "We offer customized branding activation at high-visibility rally events — car livery, hospitality, content, and fan engagement. Reach out to discuss a package built around your brand.",
+    q: "How do I confirm a part fits my car?",
+    a: "Message us on Instagram @speedfoundry or reach out through the shop before you buy, and we'll confirm fitment for your specific build.",
   },
   {
     q: "How do I get in touch?",
-    a: "Email info@jrdmotorsport.com — or send an inquiry through the form below and our team will follow up.",
+    a: "The fastest way is a DM to @speedfoundry on Instagram, or send an inquiry through the form below and we'll follow up.",
   },
 ];
