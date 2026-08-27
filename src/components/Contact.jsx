@@ -28,26 +28,23 @@ export default function Contact() {
           {/* Left: statement + quick contact */}
           <div className="lg:col-span-5">
             <Reveal>
-              <p className="label">N° 008 — Contact &amp; Bookings</p>
+              <p className="label">N° 008 — Contact &amp; Inquiries</p>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-5 font-display text-4xl font-light leading-[1.1] text-bone md:text-6xl">
-                Ready for the <span className="text-gold">grid?</span>
+                Ready for the <span className="text-gold">stage?</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-7 max-w-md text-sm leading-relaxed text-sand/75 md:text-base">
-                Let's talk. Call (540) 771-0135 now, or send a web inquiry
-                about coaching, trackside support, or a racecar build — our
-                team will follow up.
+                Let's talk. Send a web inquiry about the ARC2 program,
+                engineering services, or performance parts — our team will
+                follow up.
               </p>
             </Reveal>
             <Reveal delay={280}>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <a href="tel:+15407710135" className="btn btn-solid">
-                  Call (540) 771-0135
-                </a>
-                <a href="mailto:info@kingpinracing.com" className="btn btn-ghost">
+                <a href="mailto:info@jrdmotorsport.com" className="btn btn-solid">
                   Email Us
                 </a>
               </div>
@@ -104,17 +101,17 @@ export default function Contact() {
                     className={`w-full appearance-none border border-bone/25 bg-transparent px-4 py-3.5 text-base tracking-wide outline-none transition-colors duration-300 focus:border-gold sm:border-0 sm:border-b sm:px-1 sm:py-4 sm:text-sm sm:col-span-2 ${form.promoter ? "text-bone" : "text-sand/40"}`}
                   >
                     <option value="" className="bg-ink text-sand">I'm interested in… (optional)</option>
-                    <option value="Driver Development" className="bg-ink text-bone">Driver Development</option>
-                    <option value="Trackside Support" className="bg-ink text-bone">Trackside Support</option>
+                    <option value="ARC2 Rally Program" className="bg-ink text-bone">ARC2 Rally Program</option>
+                    <option value="Engineering Services" className="bg-ink text-bone">Engineering Services</option>
                     <option value="Racecar Consultation" className="bg-ink text-bone">Racecar Consultation</option>
+                    <option value="Performance Parts" className="bg-ink text-bone">Performance Parts</option>
                     <option value="Sponsorship Activation" className="bg-ink text-bone">Sponsorship Activation</option>
-                    <option value="Event Hosting / VIP" className="bg-ink text-bone">Event Hosting / VIP</option>
                   </select>
                   <textarea
                     rows={4}
                     value={form.message}
                     onChange={update("message")}
-                    placeholder="Tell us about your goals on track"
+                    placeholder="Tell us about your goals on the stage"
                     aria-label="Message"
                     className="w-full resize-none border border-bone/25 bg-transparent px-4 py-3.5 text-base tracking-wide text-bone outline-none transition-colors duration-300 placeholder:text-sand/40 focus:border-gold sm:border-0 sm:border-b sm:px-1 sm:py-4 sm:text-sm sm:col-span-2"
                   />

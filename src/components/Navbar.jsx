@@ -10,10 +10,10 @@ import { useEffect, useState } from "react";
  */
 const LINKS = [
   { label: "About", value: "#about" },
-  { label: "The Team", value: "#spaces" },
+  { label: "The Shop", value: "#spaces" },
   { label: "Services", value: "#events" },
   { label: "Gallery", value: "#gallery" },
-  { label: "Experiences", value: "#featured" },
+  { label: "Programs", value: "#featured" },
   { label: "FAQ", value: "#faq" },
 ];
 
@@ -58,10 +58,10 @@ export default function Navbar() {
             className="flex cursor-pointer items-center gap-3 text-left"
             aria-label="Back to top"
           >
-            <img src="/images/logo.png" alt="Kingpin Racing logo" className="h-9 w-auto" />
+            <img src="/images/logo.png" alt="JRD Motorsport logo" className="h-9 w-auto" />
             <span>
               <span className="text-sm font-medium uppercase tracking-[0.3em] text-bone">
-                Kingpin Racing
+                JRD Motorsport
               </span>
               <span className="ml-2 text-[10px] uppercase tracking-[0.3em] text-gold">GA</span>
             </span>
@@ -117,7 +117,7 @@ export default function Navbar() {
           <span className="flex items-center gap-3">
             <img src="/images/logo.png" alt="" className="h-8 w-auto" />
             <span className="text-sm uppercase tracking-[0.3em] text-bone">
-              Kingpin Racing <span className="text-[10px] text-gold">GA</span>
+              JRD Motorsport <span className="text-[10px] text-gold">GA</span>
             </span>
           </span>
           <button
@@ -150,9 +150,9 @@ export default function Navbar() {
 
         <div className="border-t border-bone/10 px-8 py-6">
           <p className="label mb-2">Visit</p>
-          <p className="text-sm text-sand/80">Road Atlanta — Braselton, GA</p>
-          <a href="tel:+15407710135" className="mt-1 block text-sm text-gold">
-            (540) 771-0135
+          <p className="text-sm text-sand/80">1101 Hwy 124 — Hoschton, GA</p>
+          <a href="mailto:info@jrdmotorsport.com" className="mt-1 block text-sm text-gold">
+            info@jrdmotorsport.com
           </a>
         </div>
       </div>

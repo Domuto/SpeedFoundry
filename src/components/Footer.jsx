@@ -6,21 +6,22 @@ const YEAR = new Date().getFullYear();
 const EXPLORE = [
   { label: "Services", href: "#events" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Experiences", href: "#featured" },
-  { label: "Find Us Trackside", href: "#visit" },
+  { label: "Programs", href: "#featured" },
+  { label: "Find Us", href: "#visit" },
 ];
 
 const VENUE = [
   { label: "About", href: "#about" },
-  { label: "The Team", href: "#spaces" },
+  { label: "The Shop", href: "#spaces" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://www.instagram.com/kingpin_racing" },
-  { label: "Facebook", href: "https://www.facebook.com/KingpinRacingLLC/" },
-  { label: "IMSA Team Page", href: "https://www.imsa.com/racing-teams/kingpin-racing-no-53/" },
+  { label: "Instagram", href: "https://www.instagram.com/jrd.motorsport" },
+  { label: "Facebook", href: "https://www.facebook.com/JRDMotorsport/" },
+  { label: "X", href: "https://x.com/JRDRally" },
+  { label: "Youtube", href: "https://www.youtube.com/channel/UCQzKf7wH08HfffoOCOHrHyw" },
 ];
 
 export default function Footer() {
@@ -30,29 +31,30 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <img src="/images/logo.png" alt="Kingpin Racing logo" className="h-16 w-auto" />
+            <img src="/images/logo.png" alt="JRD Motorsport logo" className="h-16 w-auto" />
             <p className="mt-4">
               <span className="text-sm font-medium uppercase tracking-[0.3em] text-bone">
-                Kingpin Racing
+                JRD Motorsport
               </span>
               <span className="ml-2 text-[10px] uppercase tracking-[0.3em] text-gold">
                 GA
               </span>
             </p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand/70">
-              A professional GT3 &amp; GT4 racing team — trackside support,
-              driver coaching, and racecar consultation, based at Road Atlanta.
+              A motorsport engineering company — the ARC2 rally platform,
+              engineering services, and performance parts, based in
+              Hoschton, GA.
             </p>
             <p className="mt-6 text-sm text-sand/70">
-              Road Atlanta
+              1101 Hwy 124
               <br />
-              Braselton, GA
+              Hoschton, GA 30548
             </p>
             <a
-              href="mailto:info@kingpinracing.com"
+              href="mailto:info@jrdmotorsport.com"
               className="mt-2 inline-block text-sm text-gold transition-colors duration-300 hover:text-bone"
             >
-              info@kingpinracing.com
+              info@jrdmotorsport.com
             </a>
           </div>
 
@@ -116,10 +118,10 @@ export default function Footer() {
               Bookings &amp; inquiries:
               <br />
               <a
-                href="tel:+15407710135"
+                href="mailto:info@jrdmotorsport.com"
                 className="normal-case tracking-normal text-sand/70 transition-colors hover:text-gold"
               >
-                (540) 771-0135
+                info@jrdmotorsport.com
               </a>
             </p>
           </div>
@@ -127,7 +129,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 flex flex-col gap-3 border-t border-bone/10 pt-8 text-[10px] uppercase tracking-[0.25em] text-sand/50 md:flex-row md:items-center md:justify-between">
-          <p>© {YEAR} Kingpin Racing — All rights reserved.</p>
+          <p>© {YEAR} JRD Motorsport — All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a
               href="#top"

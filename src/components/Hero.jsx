@@ -57,7 +57,7 @@ export default function Hero({ ready }) {
       ) : (
         <img
           className="absolute inset-0 h-full w-full object-cover"
-          src="/images/racing/kp14.jpg"
+          src="/images/venue/tng-main-2.jpg"
           alt=""
           aria-hidden="true"
         />
@@ -70,21 +70,21 @@ export default function Hero({ ready }) {
         {/* Badge pill */}
         <div {...anim(100, "mb-8 flex justify-center")}>
           <div className="pill">
-            <span>Racing Team</span>
+            <span>Motorsport Engineering</span>
             <span className="text-gold">•</span>
-            <span>Road Atlanta</span>
+            <span>ARC2 Rally Program</span>
             <span className="text-gold">•</span>
-            <span>Braselton, GA</span>
+            <span>Hoschton, GA</span>
           </div>
         </div>
 
         {/* Stacked poster headline: solid over outline */}
         <h1 {...anim(220, "font-display uppercase leading-[0.82] text-bone")}>
           <span className="block text-[clamp(3rem,11vw,8.5rem)]">
-            Kingpin
+            JRD
           </span>
           <span className="text-outline block text-[clamp(3.5rem,13vw,10rem)]">
-            Racing
+            Motorsport
           </span>
         </h1>
 
@@ -97,12 +97,12 @@ export default function Hero({ ready }) {
         >
           <span className="inline-flex items-center gap-2">
             <PinIcon />
-            Road Atlanta — Braselton, GA
+            1101 Hwy 124 — Hoschton, GA
           </span>
           <span className="hidden h-4 w-px bg-bone/30 sm:block" />
           <span className="inline-flex items-center gap-2">
             <StarIcon />
-            WRL · IMSA Michelin Pilot Challenge
+            American Rally Championship
           </span>
         </div>
 
@@ -113,8 +113,8 @@ export default function Hero({ ready }) {
             "mx-auto mt-7 max-w-xl text-sm leading-relaxed text-bone/80 md:text-base"
           )}
         >
-          Trackside support, driver coaching, and racecar consultation — a
-          professional GT3 &amp; GT4 racing team in the heart of Georgia.
+          Precision engineering, the ARC2 rally platform, and performance
+          parts built where Swedish ingenuity meets American grit.
         </p>
 
         {/* Buttons */}
@@ -141,7 +141,7 @@ export default function Hero({ ready }) {
         )}
       >
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-bone/60">
-          Road Atlanta, Braselton GA
+          Hoschton, GA
         </p>
 
         {/* Understated video / photo switch */}
@@ -172,7 +172,7 @@ export default function Hero({ ready }) {
         </div>
 
         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-bone/60">
-          34.146° N — 83.816° W
+          34.100° N — 83.757° W
         </p>
       </div>
 

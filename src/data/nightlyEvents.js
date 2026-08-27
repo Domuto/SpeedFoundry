@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * SERVICES — edit this file to manage the Kingpin Racing lineup.
+ * SERVICES — edit this file to manage the JRD Motorsport lineup.
  * ============================================================
  * Each entry supports:
  *   id          – unique string (used as the React key)
@@ -15,57 +15,57 @@ const CONTACT_URL = "#contact";
 
 export const nightlyEvents = [
   {
-    id: "pro-racing-team",
-    day: "Team",
-    title: "Professional Racing Team",
-    description: "A winning team currently competing in WRL and the IMSA Michelin Pilot Challenge, with a focus on GT3 & GT4 machinery.",
-    nextDate: "WRL · IMSA",
-    image: "/images/racing/kp13.jpg",
-    link: "https://www.imsa.com/racing-teams/kingpin-racing-no-53/",
+    id: "arc2-rally-program",
+    day: "Program",
+    title: "ARC2 Rally Program",
+    description: "Our flagship rally platform — engineered for accessible, top-tier American rally competition.",
+    nextDate: "American Rally",
+    image: "/images/venue/tng-main-1.jpg",
+    link: CONTACT_URL,
   },
   {
-    id: "driver-development",
-    day: "Coaching",
-    title: "Driver Development",
-    description: "Become your quickest self — mentorship, simulation training, and real-world track coaching from pro drivers.",
-    nextDate: "All Levels",
-    image: "/images/racing/kp05.jpg",
+    id: "engineering-services",
+    day: "Engineering",
+    title: "Engineering Services",
+    description: "Precision engineering and design consultation — from concept through race-ready hardware.",
+    nextDate: "Design & Build",
+    image: "/images/venue/ven02.jpg",
+    link: CONTACT_URL,
+  },
+  {
+    id: "racecar-fabrication",
+    day: "Fabrication",
+    title: "Racecar Fabrication",
+    description: "In-house builds, setup, and diagnostics — championship-caliber preparation for rally and race cars.",
+    nextDate: "Builds & Setup",
+    image: "/images/venue/ven05.jpg",
+    link: CONTACT_URL,
+  },
+  {
+    id: "performance-parts",
+    day: "Parts",
+    title: "Performance Parts",
+    description: "Precision equipment and performance platforms from our technology partners, ready to ship.",
+    nextDate: "Shop Parts",
+    image: "/images/venue/ven08.jpg",
     link: CONTACT_URL,
   },
   {
     id: "trackside-support",
     day: "Trackside",
     title: "Trackside Support",
-    description: "Full trackside support and race weekend logistics — arrive, drive, and let the crew handle the rest.",
+    description: "Full trackside and testing support for race weekends — arrive, drive, and let the crew handle the rest.",
     nextDate: "Race Weekends",
-    image: "/images/racing/kp16.jpg",
-    link: CONTACT_URL,
-  },
-  {
-    id: "performance-tuning",
-    day: "Engineering",
-    title: "Performance Tuning",
-    description: "Every millisecond counts — vehicle setup, diagnostics, and engineering consultation to unlock your car's pace.",
-    nextDate: "Setup & Data",
-    image: "/images/racing/kp15.jpg",
+    image: "/images/venue/ven09.jpg",
     link: CONTACT_URL,
   },
   {
     id: "sponsorship-activation",
     day: "Partners",
     title: "Sponsorship Activation",
-    description: "Customized branding opportunities at high-visibility race events — your brand, on the podium.",
+    description: "Customized branding opportunities at high-visibility rally events — your brand, on the stage.",
     nextDate: "Brand Exposure",
-    image: "/images/racing/kp09.jpg",
-    link: CONTACT_URL,
-  },
-  {
-    id: "event-hosting",
-    day: "Experience",
-    title: "Event Hosting",
-    description: "VIP hospitality at race weekends, behind-the-scenes team access, and live racing experiences.",
-    nextDate: "VIP Hospitality",
-    image: "/images/racing/kp11.jpg",
+    image: "/images/venue/ven11.jpg",
     link: CONTACT_URL,
   },
 ];

@@ -15,7 +15,7 @@ import Footer from "./components/Footer.jsx";
 
 /**
  * ============================================================
- * KINGPIN RACING — App shell
+ * JRD MOTORSPORT — App shell
  * ============================================================
  * Owns one piece of shared state:
  *   `loading` – true while the cinematic Loader is on screen.

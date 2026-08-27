@@ -3,7 +3,7 @@ import { nightlyEvents } from "../data/nightlyEvents.js";
 
 /**
  * N° 003 — Services.
- * Grid of Kingpin Racing services fed by src/data/nightlyEvents.js —
+ * Grid of JRD Motorsport services fed by src/data/nightlyEvents.js —
  * edit that file to add, remove, or reorder services. Each card:
  * photo, tag + title, description, and a Learn More CTA.
  */
@@ -25,8 +25,8 @@ export default function NightlyEvents() {
           </div>
           <Reveal delay={200}>
             <p className="max-w-xs text-sm leading-relaxed text-sand/60">
-              From a full pro race program to driver development and
-              performance tuning — Kingpin covers every inch of the track.
+              From the ARC2 rally program to engineering consultation and
+              partner performance parts — JRD covers every mile of the stage.
             </p>
           </Reveal>
         </div>

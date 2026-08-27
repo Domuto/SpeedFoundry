@@ -7,26 +7,26 @@ import Reveal from "./Reveal.jsx";
  * on the right, and a full-width arrival image below.
  */
 const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=Road+Atlanta,+Braselton,+GA";
+  "https://www.google.com/maps/dir/?api=1&destination=1101+Hwy+124,+Hoschton,+GA+30548";
 const PARKING_URL =
-  "https://www.google.com/maps/search/?api=1&query=Road+Atlanta+Paddock+Parking";
+  "https://www.google.com/maps/search/?api=1&query=1101+Hwy+124+Hoschton+GA+30548";
 
 const DETAILS = [
   {
     k: "Location",
-    lines: ["Road Atlanta", "Braselton, GA — just north of Atlanta"],
+    lines: ["1101 Hwy 124", "Hoschton, GA 30548"],
   },
   {
-    k: "Race Weekends",
-    lines: ["Find us in the paddock at WRL and IMSA Michelin Pilot Challenge events.", "Stop by the Kingpin trailer and say hello."],
+    k: "Rally Events",
+    lines: ["Find us in the paddock at American Rally Championship events.", "Stop by the JRD trailer and say hello."],
   },
   {
     k: "Bookings",
-    lines: ["Call (540) 771-0135 for coaching & trackside support.", "Consultations and experiences are quoted individually."],
+    lines: ["Email us for engineering, fabrication, or parts inquiries.", "Consultations and builds are quoted individually."],
   },
   {
     k: "Contact",
-    lines: ["info@kingpinracing.com"],
+    lines: ["info@jrdmotorsport.com"],
     mail: true,
   },
 ];
@@ -39,7 +39,7 @@ export default function PlanVisit() {
           {/* Left: statement + buttons */}
           <div className="lg:col-span-5">
             <Reveal>
-              <p className="label">N° 006 — Find Us Trackside</p>
+              <p className="label">N° 006 — Find Us</p>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="mt-5 font-display text-4xl font-light leading-[1.1] text-bone md:text-6xl">
@@ -48,9 +48,9 @@ export default function PlanVisit() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-7 max-w-md text-sm leading-relaxed text-sand/75 md:text-base">
-                Headquartered in Braselton, Georgia, right outside the gates of
-                Road Atlanta — one of the most iconic circuits in North
-                America. The crew handles the rest.
+                Headquartered in Hoschton, Georgia — where the shop, the
+                ARC2 program, and our partner products all come together.
+                The crew handles the rest.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -69,7 +69,7 @@ export default function PlanVisit() {
                   rel="noreferrer"
                   className="btn btn-ghost"
                 >
-                  Track Info
+                  Shop Info
                 </a>
               </div>
             </Reveal>
@@ -113,13 +113,13 @@ export default function PlanVisit() {
         <Reveal delay={150} className="mt-20">
           <div className="relative h-72 overflow-hidden md:h-96">
             <img
-              src="/images/racing/kp14.jpg"
-              alt="Kingpin Racing at Road Atlanta"
+              src="/images/venue/ven14.jpg"
+              alt="JRD Motorsport shop in Hoschton, GA"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-ink/30" />
             <p className="absolute bottom-6 left-6 text-[10px] uppercase tracking-[0.35em] text-bone/70 md:left-10">
-              Road Atlanta — Braselton, Georgia
+              1101 Hwy 124 — Hoschton, Georgia
             </p>
           </div>
         </Reveal>

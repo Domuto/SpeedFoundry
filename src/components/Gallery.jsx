@@ -7,18 +7,18 @@ import Reveal from "./Reveal.jsx";
  * pointed at the real profile.
  */
 const IMAGES = [
-  "/images/racing/kp01.jpg",
-  "/images/racing/kp02.jpg",
-  "/images/racing/kp03.jpg",
-  "/images/racing/kp04.jpg",
-  "/images/racing/kp06.jpg",
-  "/images/racing/kp07.jpg",
-  "/images/racing/kp08.jpg",
-  "/images/racing/kp10.jpg",
-  "/images/racing/kp17.jpg",
+  "/images/venue/ven01.jpg",
+  "/images/venue/ven02.jpg",
+  "/images/venue/ven03.jpg",
+  "/images/venue/ven04.jpg",
+  "/images/venue/ven06.jpg",
+  "/images/venue/ven07.jpg",
+  "/images/venue/ven08.jpg",
+  "/images/venue/ven10.jpg",
+  "/images/venue/tng-main-1.jpg",
 ];
 
-const INSTAGRAM_URL = "https://www.instagram.com/kingpin_racing";
+const INSTAGRAM_URL = "https://www.instagram.com/jrd.motorsport";
 
 export default function Gallery() {
   return (
@@ -31,7 +31,7 @@ export default function Gallery() {
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-5 font-display text-4xl font-light text-bone md:text-6xl">
-              Scenes from the track.
+              Scenes from the stage.
             </h2>
           </Reveal>
         </div>
@@ -64,7 +64,7 @@ export default function Gallery() {
             >
               <img
                 src={src}
-                alt={`Kingpin Racing — gallery ${i + 1}`}
+                alt={`JRD Motorsport — gallery ${i + 1}`}
                 className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-colors duration-500 group-hover:bg-ink/45">

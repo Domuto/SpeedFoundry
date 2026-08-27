@@ -10,30 +10,30 @@ import Reveal from "./Reveal.jsx";
 const SPACES = [
   {
     n: "01",
-    title: "The Race Team",
-    image: "/images/racing/kp13.jpg",
-    blurb: "A winning program competing in WRL and IMSA Michelin Pilot Challenge — built on GT3 & GT4 cars.",
+    title: "The Rally Program",
+    image: "/images/venue/tng-main-1.jpg",
+    blurb: "Home of the ARC2 platform — built for accessible, top-tier American rally competition.",
     target: "#events",
   },
   {
     n: "02",
-    title: "Driver Coaching",
-    image: "/images/racing/kp05.jpg",
-    blurb: "Personalized mentorship, sim training, and real-world track coaching to make you your quickest self.",
+    title: "Engineering & Fabrication",
+    image: "/images/venue/ven02.jpg",
+    blurb: "Precision engineering and in-house fabrication turning ideas into race-ready hardware.",
     target: "#events",
   },
   {
     n: "03",
-    title: "The Garage",
-    image: "/images/racing/kp15.jpg",
-    blurb: "Racecar builds, setup, diagnostics, and engineering consultation — championship-caliber preparation.",
+    title: "The Shop",
+    image: "/images/venue/ven05.jpg",
+    blurb: "Racecar builds, setup, diagnostics, and consultation — championship-caliber preparation.",
     target: "#events",
   },
   {
     n: "04",
-    title: "Race Experiences",
-    image: "/images/racing/kp11.jpg",
-    blurb: "VIP hospitality at race weekends, team access, and exclusive live racing experiences.",
+    title: "Partner Products",
+    image: "/images/venue/ven08.jpg",
+    blurb: "Precision performance parts and equipment from our technology partners, ready to ship.",
     target: "#featured",
   },
 ];
@@ -48,18 +48,18 @@ export default function Spaces() {
       <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div>
           <Reveal>
-            <p className="label">N° 002 — Explore the Team</p>
+            <p className="label">N° 002 — Explore JRD</p>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-5 font-display text-4xl font-light text-bone md:text-6xl">
-              Built for the podium.
+              Built to set the standard.
             </h2>
           </Reveal>
         </div>
         <Reveal delay={200}>
           <p className="max-w-xs text-sm leading-relaxed text-sand/60">
-            From the pit box to the driver's seat, every part of Kingpin is
-            built to find speed — and keep it.
+            From the garage to the special stage, every part of JRD is
+            engineered to perform — and to last.
           </p>
         </Reveal>
       </div>

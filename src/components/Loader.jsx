@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 /**
- * Cinematic entry screen — "Entering Kingpin Racing".
+ * Cinematic entry screen — "Entering JRD Motorsport".
  * Holds for ~2.4s, slides up over ~0.9s, then unmounts.
  *
  * To speed it up / slow it down, adjust the two timeout values
@@ -29,7 +29,7 @@ export default function Loader({ onDone }) {
       {/* Background image + dark veil */}
       <img
         className="absolute inset-0 h-full w-full object-cover"
-        src="/images/racing/kp13.jpg"
+        src="/images/venue/tng-main-1.jpg"
         alt=""
         aria-hidden="true"
       />
@@ -38,13 +38,13 @@ export default function Loader({ onDone }) {
       <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center">
         <img
           src="/images/logo.png"
-          alt="Kingpin Racing logo"
+          alt="JRD Motorsport logo"
           className="loader__label h-24 w-auto md:h-32"
         />
-        <p className="loader__label label">Road Atlanta — Braselton, GA</p>
+        <p className="loader__label label">Hoschton, GA</p>
 
         <h1 className="loader__title font-display text-5xl uppercase tracking-wide text-bone md:text-7xl">
-          Kingpin <span className="text-gold">Racing</span>
+          JRD <span className="text-gold">Motorsport</span>
         </h1>
 
         <span className="loader__line block h-px w-40 bg-gold/70 md:w-56" />

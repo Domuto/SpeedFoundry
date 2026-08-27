@@ -9,42 +9,42 @@ import Reveal from "./Reveal.jsx";
 const SPOTLIGHTS = [
   {
     n: "001",
-    name: "Trackside Support & Coaching",
-    category: "Race Weekends",
-    image: "/images/racing/kp16.jpg",
-    copy: "Experience top-notch coaching and trackside support like never before. Our crew handles logistics, setup, and tuning so you can focus entirely on the drive — arrive and drive, we take care of the rest.",
-    link: "tel:+15407710135",
-    linkLabel: "Call (540) 771-0135",
+    name: "ARC2 Testing with Marcus Grönholm",
+    category: "Rally Program",
+    image: "/images/venue/tng-main-2.jpg",
+    copy: "JRD Motorsport completed a grueling two-day test of the ARC2 rally car with two-time FIA World Rally Champion Marcus Grönholm behind the wheel — a major milestone in what we believe is the future of accessible, top-tier American rally competition.",
+    link: "mailto:info@jrdmotorsport.com",
+    linkLabel: "Ask About ARC2",
   },
   {
     n: "002",
     name: "Racecar Consultation & Management",
     category: "Builds & Ownership",
-    image: "/images/racing/kp15.jpg",
-    copy: "Discover the epitome of professional racing expertise and racecar build consultation. From sourcing your GT3 or GT4 car to setup, maintenance, and full season management — pricing is quoted individually.",
+    image: "/images/venue/ven03.jpg",
+    copy: "Discover the epitome of motorsport engineering and racecar build consultation. From sourcing your platform to setup, maintenance, and full program management — pricing is quoted individually.",
     link: "#contact",
     linkLabel: "Inquire About Your Build",
     scroll: true,
   },
   {
     n: "003",
-    name: "Exclusive Racing Experience",
-    category: "VIP Hospitality",
-    image: "/images/racing/kp11.jpg",
-    copy: "Embark on a journey of unparalleled racing excellence with Kingpin Racing. VIP hospitality at race weekends, behind-the-scenes team access, and live experiences at legendary circuits like Road Atlanta.",
+    name: "Partner Race Products",
+    category: "Performance Parts",
+    image: "/images/venue/ven07.jpg",
+    copy: "Performance platforms, precision equipment, and expert engineering services — designed to set the standard. Shop parts from our technology partners or ask us to spec a build.",
     link: "#contact",
-    linkLabel: "Plan Your Experience",
+    linkLabel: "Shop Partner Products",
     scroll: true,
   },
 ];
 
 const SAMPLE_MENU = [
-  { src: "/images/racing/kp01.jpg", alt: "Kingpin Racing on track" },
-  { src: "/images/racing/kp03.jpg", alt: "Race weekend action" },
-  { src: "/images/racing/kp06.jpg", alt: "GT machinery at speed" },
-  { src: "/images/racing/kp08.jpg", alt: "Pit lane operations" },
-  { src: "/images/racing/kp10.jpg", alt: "Team celebrations" },
-  { src: "/images/racing/kp12.jpg", alt: "Trackside moments" },
+  { src: "/images/venue/ven01.jpg", alt: "JRD Motorsport on the stage" },
+  { src: "/images/venue/ven04.jpg", alt: "Rally weekend action" },
+  { src: "/images/venue/ven06.jpg", alt: "ARC2 platform at speed" },
+  { src: "/images/venue/ven10.jpg", alt: "Shop and fabrication" },
+  { src: "/images/venue/ven12.jpg", alt: "Team at work" },
+  { src: "/images/venue/ven13.jpg", alt: "Trackside moments" },
 ];
 
 export default function PrivateEvents() {
@@ -59,11 +59,11 @@ export default function PrivateEvents() {
         {/* Section header */}
         <div className="mb-4">
           <Reveal>
-            <p className="label">N° 004 — Racing Experiences</p>
+            <p className="label">N° 004 — Featured Programs</p>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="mt-5 font-display text-4xl font-light text-bone md:text-6xl">
-              Own your lane.
+              Own your stage.
             </h2>
           </Reveal>
         </div>
@@ -128,7 +128,7 @@ export default function PrivateEvents() {
         {/* On track */}
         <div className="border-t border-bone/10 pt-16">
           <Reveal>
-            <p className="label">On Track</p>
+            <p className="label">On the Stage</p>
           </Reveal>
           <Reveal delay={100}>
             <h3 className="mt-5 font-display text-3xl font-light text-bone md:text-4xl">

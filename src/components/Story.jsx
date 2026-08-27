@@ -6,9 +6,9 @@ import Reveal from "./Reveal.jsx";
  * (established / nights weekly / address).
  */
 const STATS = [
-  { value: "2017", label: "Year the team was founded" },
-  { value: "GT3/4", label: "Our focus — GT3 & GT4 machinery" },
-  { value: "10+", label: "Years of combined pro experience" },
+  { value: "ARC2", label: "Our flagship rally platform" },
+  { value: "GA", label: "Headquartered in Hoschton, Georgia" },
+  { value: "SWE/USA", label: "Swedish ingenuity, American grit" },
 ];
 
 export default function Story() {
@@ -24,8 +24,8 @@ export default function Story() {
             <Reveal delay={120}>
               <div className="mt-10 hidden overflow-hidden lg:block">
                 <img
-                  src="/images/racing/kp16.jpg"
-                  alt="Kingpin Racing crew at work"
+                  src="/images/venue/tng-main-3.jpg"
+                  alt="JRD Motorsport crew at work"
                   className="aspect-[4/5] w-full object-cover"
                 />
               </div>
@@ -36,28 +36,29 @@ export default function Story() {
           <div className="lg:col-span-8">
             <Reveal>
               <h2 className="font-display text-4xl font-light leading-[1.15] text-bone md:text-5xl lg:text-6xl">
-                A racing dynasty —{" "}
-                <span className="text-gold">precise, relentless,</span>{" "}
+                Where Swedish ingenuity —{" "}
+                <span className="text-gold">meets American grit,</span>{" "}
                 and unmistakably Georgia.
               </h2>
             </Reveal>
 
             <Reveal delay={150}>
               <p className="mt-8 max-w-2xl text-sm leading-relaxed text-sand/80 md:text-base">
-                Based in Braselton, Georgia — right outside Road Atlanta —
-                Kingpin Racing is a professional racing team rooted in a legacy
-                of excellence. We are a tightly knit family unit dedicated to
-                the art of high-speed performance, with a steadfast focus on
-                GT3 &amp; GT4 cars.
+                Based in Hoschton, Georgia, JRD Motorsport is a motorsport
+                engineering company built on precision, performance, and
+                passion. We craft solutions that empower racers and
+                enthusiasts to excel at every turn, both on the track and in
+                the garage.
               </p>
             </Reveal>
 
             <Reveal delay={250}>
               <p className="mt-6 max-w-2xl text-sm leading-relaxed text-sand/60">
-                From trackside support and personalized coaching to seamless
-                transportation solutions, we've developed championship-caliber
-                vehicles, trained elite drivers, and built lasting partnerships
-                across the industry. Join us on the podium of success.
+                From our flagship ARC2 rally platform to precision performance
+                parts and expert engineering services, JRD is more than a
+                name — it's a commitment to excellence. We're shaping what it
+                means to lead in performance and innovation, and building an
+                accessible, top-tier American rally competition along the way.
               </p>
             </Reveal>
 

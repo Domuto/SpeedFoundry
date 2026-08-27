@@ -1,6 +1,6 @@
-# Kingpin Racing Website
+# JRD Motorsport Website
 
-A premium, cinematic website for Kingpin Racing.
+A premium, cinematic website for JRD Motorsport — where Swedish ingenuity meets American grit.
 
 Stack: Vite, React 19, Tailwind CSS v4
 
@@ -33,5 +33,5 @@ npm run preview
 ## Notes
 
 - Design tokens live in src/index.css.
-- Content for events and FAQ is in src/data.
-- Update images by replacing files in public/images.
+- Content for services and FAQ is in src/data.
+- Update images by replacing files in public/images (current photos are placeholders — swap in real JRD Motorsport photography before launch).
