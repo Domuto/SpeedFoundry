@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/((?!booking/|game/).*)", "destination": "/index.html" }]
+}

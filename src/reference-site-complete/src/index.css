@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THE INTERLOCK — DESIGN TOKENS (Culture Haus aesthetic)
+   Electric cobalt blue + cream + orange-coral, heavy poster type.
+   Edit brand colors and fonts here. Every component pulls from
+   these values (e.g. bg-ink, text-gold, font-display).
+   ============================================================ */
+@theme {
+  --color-ink: #0c1030;      /* deep navy page background            */
+  --color-charcoal: #141a42; /* raised navy surfaces / bands         */
+  --color-smoke: #1c2452;    /* hover surfaces                       */
+  --color-blue: #2438db;     /* electric cobalt (hero + CTA bands)   */
+  --color-bone: #efeadd;     /* cream off-white primary text         */
+  --color-sand: #b7bedd;     /* cool periwinkle, secondary text      */
+  --color-gold: #f15a29;     /* orange-coral accent                  */
+  --color-amber: #e7b24c;    /* warm gold, small icons               */
+
+  --font-display: "Anton", "Archivo", sans-serif;
+  --font-body: "Archivo", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------------- Base ---------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink font-body text-bone antialiased;
+}
+
+::selection {
+  @apply bg-gold text-ink;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Understated scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1030;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3170;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f15a29;
+}
+
+/* ---------------- Reusable component classes ---------------- */
+@layer components {
+  /* Small uppercase eyebrow label, e.g. "N° 003 — THE DIRECTORY" */
+  .label {
+    @apply font-body text-[11px] font-bold uppercase tracking-[0.32em] text-gold;
+  }
+
+  /* Standard section padding */
+  .section-pad {
+    @apply px-6 py-24 md:px-12 md:py-32 lg:px-20;
+  }
+
+  /* Buttons — use as "btn btn-solid" / "btn btn-ghost" (+ "btn-sm" for compact) */
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-3 rounded-[3px] border px-8 py-4 text-[11px] font-bold uppercase tracking-[0.22em] transition-all duration-300;
+  }
+  .btn-solid {
+    @apply border-gold bg-gold text-ink hover:border-bone hover:bg-bone hover:text-ink;
+  }
+  .btn-ghost {
+    @apply border-bone/50 bg-transparent text-bone hover:border-gold hover:text-gold;
+  }
+  .btn-sm {
+    @apply px-6 py-3;
+  }
+
+  /* One-pixel horizontal rule */
+  .hairline {
+    @apply border-t border-bone/10;
+  }
+
+  /* Black label pill — Culture Haus style top-of-hero eyebrow */
+  .pill {
+    @apply inline-flex items-center gap-3 rounded-[3px] bg-ink/85 px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.28em] text-bone backdrop-blur;
+  }
+
+  /* Outlined (stroked) poster text — transparent fill, cream stroke */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: clamp(1.5px, 0.35vw, 3px) var(--color-bone);
+    text-stroke: clamp(1.5px, 0.35vw, 3px) var(--color-bone);
+  }
+}
+
+/* ---------------- Gradient veils (image overlays) ---------------- */
+.veil-hero {
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 16, 48, 0.55) 0%,
+    rgba(12, 16, 48, 0.15) 40%,
+    rgba(12, 16, 48, 0.92) 100%
+  );
+}
+.veil-card {
+  background: linear-gradient(
+    to top,
+    rgba(12, 16, 48, 0.92) 0%,
+    rgba(12, 16, 48, 0.25) 55%,
+    rgba(12, 16, 48, 0) 100%
+  );
+}
+
+/* ---------------- Electric hero backdrop (Culture Haus) ---------------- */
+.hero-graphic {
+  background:
+    radial-gradient(120% 90% at 82% 18%, rgba(241, 90, 41, 0.38), transparent 55%),
+    radial-gradient(100% 80% at 12% 92%, rgba(231, 178, 76, 0.18), transparent 60%),
+    var(--color-blue);
+}
+.hero-graphic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-radial-gradient(
+    circle at 80% 52%,
+    transparent 0 58px,
+    rgba(239, 234, 221, 0.07) 58px 60px
+  );
+  -webkit-mask: radial-gradient(circle at 80% 52%, #000 0%, transparent 72%);
+  mask: radial-gradient(circle at 80% 52%, #000 0%, transparent 72%);
+  pointer-events: none;
+}
+
+/* ---------------- Scroll reveal (used by <Reveal />) ---------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Loader ---------------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.loader {
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.loader--exit {
+  transform: translateY(-101%);
+}
+.loader__label {
+  animation: fade-up 0.9s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.loader__title {
+  animation: fade-up 1.1s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.loader__line {
+  transform-origin: left center;
+  animation: line-grow 1.3s 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ---------------- Hero entrance (fires after the loader) ---------------- */
+.hero-el {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hero-el.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Hero scroll indicator ---------------- */
+@keyframes scroll-pulse {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+.scroll-line {
+  animation: scroll-pulse 2.4s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+/* ---------------- Marquee word strip ---------------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------------- Reduced motion ---------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .hero-el {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .loader__label,
+  .loader__title,
+  .loader__line,
+  .scroll-line,
+  .marquee-track {
+    animation: none;
+  }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tongue &amp; Groove Atlanta — VIP Table Reservations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<style>
+  :root{
+    --bg:#0c1030; --panel:#141a42; --line:#2a3170;
+    --gold:#f15a29; --champ:#efeadd; --ink:#efeadd; --dim:#b7bedd;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:'Archivo',sans-serif;min-height:100%}
+
+  header{padding:26px 16px 0;text-align:center}
+  .mark{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(26px,5vw,44px);
+    color:var(--champ);letter-spacing:.1em;text-transform:uppercase}
+  .mark span{color:var(--gold)}
+  .tag{margin-top:6px;color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase}
+  .rule{width:min(680px,80%);height:1px;margin:16px auto 0;
+    background:linear-gradient(90deg,transparent,rgba(239,234,221,.35),transparent)}
+
+  /* tabs */
+  .tabs{display:flex;justify-content:center;gap:10px;margin:18px auto 14px}
+  .tab{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.22em;font-size:11px;
+    padding:12px 22px;border-radius:3px;border:1px solid rgba(239,234,221,.5);cursor:pointer;
+    text-transform:uppercase;background:transparent;color:var(--champ);transition:.3s}
+  .tab.active{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+  .tab:not(.active):hover{border-color:var(--gold);color:var(--gold)}
+
+  /* stage / iframes */
+  .stage{max-width:1180px;margin:0 auto;padding:0 12px 130px}
+  .frameWrap{position:relative;border:1px solid rgba(239,234,221,.1);border-radius:3px;overflow:hidden;
+    background:#0a0d26;box-shadow:0 24px 70px #000a}
+  iframe{display:block;width:100%;border:0;background:#0a0d26}
+  #fr3d{height:min(72vh,760px)}
+  #frMap{height:min(78vh,860px);display:none}
+
+  /* ---- upcoming nights (Celestia-style card rail) ---- */
+  .nightsWrap{max-width:1180px;margin:26px auto 30px;padding:0 12px}
+  .nightsLabel{font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);margin:0 4px 14px}
+  .nights{display:flex;gap:16px;overflow-x:auto;padding:4px 4px 14px;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch}
+  .nights::-webkit-scrollbar{height:8px}
+  .nights::-webkit-scrollbar-track{background:transparent}
+  .nights::-webkit-scrollbar-thumb{background:#2a3170;border-radius:4px}
+  .night{position:relative;flex:0 0 280px;scroll-snap-align:start;border:1.5px solid rgba(239,234,221,.18);
+    border-radius:3px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column;
+    transition:border-color .3s,transform .3s}
+  .night:hover{border-color:var(--gold);transform:translateY(-3px)}
+  .night img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+  .nightBody{padding:16px 16px 18px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .nightTitle{font-family:'Anton',sans-serif;font-size:19px;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--champ)}
+  .nightDay{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .nightDesc{font-size:12.5px;line-height:1.5;color:var(--dim);margin-top:2px}
+  .nightBtn{margin-top:12px;display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+    padding:10px 16px;border:1px solid rgba(239,234,221,.5);border-radius:999px;cursor:pointer;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.2em;
+    text-transform:uppercase;background:rgba(12,16,48,.6);color:var(--champ);transition:.3s;
+    text-decoration:none}
+  .nightBtn:hover{border-color:var(--gold);color:var(--gold)}
+  .nightBtn .spark{color:var(--gold)}
+  .homeLink{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 14px;
+    border:1px solid rgba(239,234,221,.45);border-radius:3px;font-size:11px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--champ);text-decoration:none;transition:.3s}
+  .homeLink:hover{color:var(--gold);border-color:var(--gold)}
+  .hint{margin-top:10px;text-align:center;color:var(--dim);opacity:.7;font-size:11px;letter-spacing:.22em}
+
+  /* selection bar */
+  #selBar{position:fixed;left:50%;bottom:-120px;transform:translateX(-50%);width:min(720px,94vw);
+    display:flex;align-items:center;gap:14px;padding:14px 18px;z-index:40;
+    background:rgba(20,26,66,.95);border:1px solid rgba(239,234,221,.15);
+    border-radius:3px;backdrop-filter:blur(10px);box-shadow:0 14px 50px #000c;
+    transition:bottom .28s cubic-bezier(.2,.8,.2,1)}
+  #selBar.open{bottom:14px}
+  #selDot{width:14px;height:14px;border-radius:50%;flex:none;box-shadow:0 0 12px currentColor}
+  #selName{font-family:'Anton',sans-serif;font-weight:400;color:var(--champ);font-size:16.5px;letter-spacing:.06em;text-transform:uppercase}
+  #selMeta{color:var(--dim);font-size:12.5px;letter-spacing:.05em;margin-top:1px}
+  #selBtn{margin-left:auto;flex:none;padding:12px 20px;border:1px solid var(--gold);border-radius:3px;cursor:pointer;
+    font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.22em;font-size:11px;text-transform:uppercase;
+    background:var(--gold);color:var(--bg);transition:.3s}
+  #selBtn:hover{background:var(--champ);border-color:var(--champ)}
+  #selBtn:active{transform:scale(.97)}
+
+  /* modal */
+  #veil{position:fixed;inset:0;background:rgba(12,16,48,.85);backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+  #veil.open{display:flex}
+  #modal{width:min(520px,100%);background:var(--panel);
+    border:1px solid rgba(239,234,221,.15);border-radius:3px;padding:24px;box-shadow:0 30px 90px #000}
+  #mTitle{font-family:'Anton',sans-serif;font-weight:400;color:var(--champ);font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+  #mSub{color:var(--dim);font-size:13px;margin-top:4px;letter-spacing:.04em}
+  #mForm{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fw{grid-column:1/-1}
+  label{display:block;font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--gold);margin-bottom:5px;text-transform:uppercase}
+  input,textarea,select{width:100%;background:var(--bg);border:1px solid rgba(239,234,221,.25);border-radius:3px;
+    color:var(--ink);padding:10px 12px;font-family:'Archivo',sans-serif;font-size:14px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+  textarea{resize:vertical;min-height:64px}
+  #mSend{grid-column:1/-1;margin-top:4px;padding:14px;border:1px solid var(--gold);border-radius:3px;cursor:pointer;
+    font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.22em;font-size:12px;text-transform:uppercase;
+    background:var(--gold);color:var(--bg);transition:.3s}
+  #mSend:hover{background:var(--champ);border-color:var(--champ)}
+  #mX{position:absolute;background:none;border:1px solid rgba(239,234,221,.35);color:var(--dim);border-radius:3px;
+    width:30px;height:30px;cursor:pointer;font-size:15px;line-height:1;margin-left:auto}
+  .mHead{display:flex;align-items:flex-start;gap:10px}
+  .err{border-color:#ff5470!important}
+
+  /* toast */
+  #toast{position:fixed;left:50%;top:18px;transform:translateX(-50%) translateY(-90px);
+    background:var(--panel);border:1px solid var(--gold);color:var(--champ);padding:12px 24px;border-radius:3px;
+    font-size:13.5px;letter-spacing:.06em;transition:transform .3s;z-index:70;box-shadow:0 8px 30px #000a;
+    max-width:92vw;text-align:center}
+  #toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">TONGUE <span>&amp;</span> GROOVE</div>
+  <div class="tag">VIP Table Reservations · Saturday Nights 10PM–3AM</div>
+  <div class="rule"></div>
+  <a class="homeLink" href="/">← Back to Home</a>
+</header>
+
+<!-- upcoming nights -->
+<div class="nightsWrap">
+  <p class="nightsLabel">Upcoming Nights</p>
+  <div class="nights" id="nights"></div>
+</div>
+
+
+
+<script>
+/* ============ UPCOMING NIGHTS — keep in sync with src/data/nightlyEvents.js ============ */
+const NIGHTS=[
+  {id:'en-vivo-wednesdays',day:'Every Wednesday',title:'En Vivo Wednesdays',desc:'Live Latin bands and a horn section that never quits.',img:'/images/events/latin-flyer-two.jpg'},
+  {id:'latin-wednesdays',day:'Every Wednesday',title:'Latin Wednesdays',desc:"Reggaeton, salsa, and perreo all night — Atlanta's original Latin night.",img:'/images/events/latin-flyer-one.jpg'},
+  {id:'perreologia',day:'Every Thursday',title:'Perreo Logía',desc:'Reggaeton, dembow, and Latin trap — the sweatiest floor in Buckhead.',img:'/images/events/thursday-at-tng.jpg'},
+  {id:'ladies-night',day:'Every Friday',title:"Ladie's Night",desc:'Free entry and bottle specials for the ladies.',img:'/images/events/friday-at-tng.jpg'},
+  {id:'saturdays-at-tg',day:'Every Saturday',title:'Saturdays at T&G',desc:'The main room at full volume — the biggest crowd of the week.',img:'/images/events/saturday-at-tng.jpg'},
+  {id:'saturday-in-the-joint',day:'Every Saturday',title:'Saturday in the Joint',desc:"An after-hours side-room set for the ones who don't want the night to end.",img:'/images/events/saturday-at-tng-2.jpg'}
+];
+const STAR_SVG='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color:var(--gold)"><path d="M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4L12 2Z"/></svg>';
+document.getElementById('nights').innerHTML=NIGHTS.map(n=>
+  '<article class="night">'+
+    '<img src="'+n.img+'" alt="'+n.title+' flyer" loading="lazy">'+
+    '<div class="nightBody">'+
+      '<p class="nightDay">'+n.day+'</p>'+
+      '<h3 class="nightTitle">'+n.title+'</h3>'+
+      '<p class="nightDesc">'+n.desc+'</p>'+
+      '<a class="nightBtn" href="tables.html?event='+encodeURIComponent(n.id)+'">'+STAR_SVG+' Book Your Table</a>'+
+    '</div>'+
+  '</article>').join('');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tongue &amp; Groove Atlanta — VIP Table Reservations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0912; --panel:#12101d; --line:#2a2440;
+    --gold:#d4a857; --champ:#f0dcb0; --ink:#cfc8e0; --dim:#8d84a8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--ink);font-family:'Jost',sans-serif;min-height:100%}
+
+  header{padding:26px 16px 0;text-align:center}
+  .mark{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(26px,5vw,44px);
+    color:var(--champ);letter-spacing:.16em}
+  .mark span{color:var(--gold)}
+  .tag{margin-top:6px;color:var(--gold);font-size:12.5px;letter-spacing:.5em;text-transform:uppercase}
+  .rule{width:min(680px,80%);height:1.4px;margin:16px auto 0;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+  /* tabs */
+  .tabs{display:flex;justify-content:center;gap:10px;margin:18px auto 14px}
+  .tab{font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;font-size:13px;
+    padding:11px 22px;border-radius:999px;border:1px solid #3a3157;cursor:pointer;
+    background:#161226;color:#b9b0d2;transition:.18s}
+  .tab.active{background:linear-gradient(90deg,#b8893d,#e9c87e,#b8893d);color:#1b1206;border-color:transparent;
+    box-shadow:0 6px 24px #d4a85733}
+  .tab:not(.active):hover{border-color:var(--gold);color:var(--champ)}
+
+  /* stage / iframes */
+  .stage{max-width:1180px;margin:0 auto;padding:0 12px 130px}
+  .frameWrap{position:relative;border:1px solid #2a2440;border-radius:16px;overflow:hidden;
+    background:#070610;box-shadow:0 24px 70px #000a}
+  iframe{display:block;width:100%;border:0;background:#070610}
+  #fr3d{height:min(72vh,760px)}
+  #frMap{height:min(78vh,860px);display:none}
+  .hint{margin-top:10px;text-align:center;color:#6f6690;font-size:12px;letter-spacing:.12em}
+
+  /* selection bar */
+  #selBar{position:fixed;left:50%;bottom:-120px;transform:translateX(-50%);width:min(720px,94vw);
+    display:flex;align-items:center;gap:14px;padding:14px 18px;z-index:40;
+    background:linear-gradient(180deg,#191527f2,#0e0b18f6);border:1px solid #3a3157;
+    border-radius:16px;backdrop-filter:blur(10px);box-shadow:0 14px 50px #000c;
+    transition:bottom .28s cubic-bezier(.2,.8,.2,1)}
+  #selBar.open{bottom:14px}
+  #selDot{width:14px;height:14px;border-radius:50%;flex:none;box-shadow:0 0 12px currentColor}
+  #selName{font-family:'Cinzel',serif;font-weight:700;color:var(--champ);font-size:16.5px;letter-spacing:.03em}
+  #selMeta{color:var(--dim);font-size:12.5px;letter-spacing:.05em;margin-top:1px}
+  #selBtn{margin-left:auto;flex:none;padding:11px 18px;border:none;border-radius:10px;cursor:pointer;
+    font-family:'Cinzel',serif;font-weight:700;letter-spacing:.12em;font-size:12.5px;
+    background:linear-gradient(90deg,#b8893d,#e9c87e,#b8893d);color:#1b1206}
+  #selBtn:active{transform:scale(.97)}
+
+  /* modal */
+  #veil{position:fixed;inset:0;background:#05040add;backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+  #veil.open{display:flex}
+  #modal{width:min(520px,100%);background:linear-gradient(180deg,#191527,#0e0b18);
+    border:1px solid #3a3157;border-radius:18px;padding:24px;box-shadow:0 30px 90px #000}
+  #mTitle{font-family:'Cinzel',serif;font-weight:700;color:var(--champ);font-size:20px;letter-spacing:.06em}
+  #mSub{color:var(--dim);font-size:13px;margin-top:4px;letter-spacing:.04em}
+  #mForm{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fw{grid-column:1/-1}
+  label{display:block;font-size:11px;letter-spacing:.16em;color:#8d84a8;margin-bottom:5px;text-transform:uppercase}
+  input,textarea,select{width:100%;background:#0d0a18;border:1px solid #352d52;border-radius:9px;
+    color:var(--ink);padding:10px 12px;font-family:'Jost',sans-serif;font-size:14px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+  textarea{resize:vertical;min-height:64px}
+  #mSend{grid-column:1/-1;margin-top:4px;padding:13px;border:none;border-radius:10px;cursor:pointer;
+    font-family:'Cinzel',serif;font-weight:700;letter-spacing:.14em;font-size:14px;
+    background:linear-gradient(90deg,#b8893d,#e9c87e,#b8893d);color:#1b1206}
+  #mX{position:absolute;background:none;border:1px solid #4a4066;color:#b9b0d2;border-radius:8px;
+    width:30px;height:30px;cursor:pointer;font-size:15px;line-height:1;margin-left:auto}
+  .mHead{display:flex;align-items:flex-start;gap:10px}
+  .err{border-color:#ff5470!important}
+
+  /* toast */
+  #toast{position:fixed;left:50%;top:18px;transform:translateX(-50%) translateY(-90px);
+    background:#191527;border:1px solid var(--gold);color:var(--champ);padding:12px 24px;border-radius:999px;
+    font-size:13.5px;letter-spacing:.06em;transition:transform .3s;z-index:70;box-shadow:0 8px 30px #000a;
+    max-width:92vw;text-align:center}
+  #toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">TONGUE <span>&amp;</span> GROOVE</div>
+  <div class="tag">VIP Table Reservations · Saturday Nights 10PM–3AM</div>
+  <div class="rule"></div>
+  <div class="tabs">
+    <button class="tab active" id="tab3d">3D WALKTHROUGH</button>
+    <button class="tab" id="tabMap">2D FLOOR MAP</button>
+  </div>
+</header>
+
+<div class="stage">
+  <div class="frameWrap">
+    <iframe id="fr3d"  src="tng-vip-3d.html?embed=1"  title="3D venue walkthrough"></iframe>
+    <iframe id="frMap" src="tng-vip-map.html?embed=1" title="2D floor map"></iframe>
+  </div>
+  <div class="hint" id="hint">DRAG TO ORBIT · SCROLL TO ZOOM · TAP A TABLE TO SELECT</div>
+</div>
+
+<!-- selection bar -->
+<div id="selBar">
+  <div id="selDot"></div>
+  <div>
+    <div id="selName">—</div>
+    <div id="selMeta">—</div>
+  </div>
+  <button id="selBtn">REQUEST</button>
+</div>
+
+<!-- request modal -->
+<div id="veil">
+  <div id="modal">
+    <div class="mHead">
+      <div>
+        <div id="mTitle">Request a Section</div>
+        <div id="mSub">—</div>
+      </div>
+      <button id="mX" aria-label="Close">✕</button>
+    </div>
+    <div id="mForm">
+      <div><label for="fName">Name *</label><input id="fName" autocomplete="name"></div>
+      <div><label for="fPhone">Phone *</label><input id="fPhone" inputmode="tel" autocomplete="tel"></div>
+      <div class="fw"><label for="fEmail">Email</label><input id="fEmail" inputmode="email" autocomplete="email"></div>
+      <div><label for="fParty">Party Size</label><input id="fParty" inputmode="numeric" placeholder="8"></div>
+      <div><label for="fDate">Date</label><input id="fDate" type="date"></div>
+      <div class="fw"><label for="fNotes">Notes / Occasion</label><textarea id="fNotes" placeholder="Birthday, bottle preferences, arrival time…"></textarea></div>
+      <button id="mSend">SEND REQUEST</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast">Request received</div>
+
+<script>
+/* ============ SECTION DATA — keep in sync with tng-vip-3d.html / tng-vip-map.html ============ */
+const CATS={
+  center:{label:'Center Booth',      color:'#F2C14E',pax:12,min:2500},
+  stage: {label:'Stage Table',       color:'#FF3D8D',pax:10,min:2000},
+  dance: {label:'Dance Floor Table', color:'#2DD4CF',pax:8, min:1500},
+  front: {label:'Front Room Table',  color:'#A78BFA',pax:8, min:1200},
+  patio: {label:'Patio Section',     color:'#4ADE80',pax:10,min:1000},
+  rail:  {label:'Balcony Rail Booth',color:'#FB923C',pax:8, min:1800},
+  up:    {label:'Upstairs Lounge',   color:'#60A5FA',pax:6, min:800}
+};
+const SECTIONS={
+  T3:{cat:'center'},
+  T6:{cat:'stage'},T7:{cat:'stage'},T5:{cat:'stage'},
+  T4B:{cat:'dance'},T4A:{cat:'dance'},
+  T1:{cat:'front'},T2:{cat:'front'},
+  D1:{cat:'patio'},D2:{cat:'patio'},D3:{cat:'patio'},
+  T8:{cat:'rail'},T10:{cat:'rail'},
+  T11:{cat:'up',pax:8,min:1000},T12:{cat:'up',pax:8,min:1000},
+  T13:{cat:'up'},T14:{cat:'up'},T15:{cat:'up'}
+};
+/* ============================================================================================ */
+
+const $=id=>document.getElementById(id);
+const fmt=n=>'$'+Number(n).toLocaleString('en-US');
+let selected=null;
+
+/* tabs */
+function showTab(which){
+  const is3d=which==='3d';
+  $('tab3d').classList.toggle('active',is3d);
+  $('tabMap').classList.toggle('active',!is3d);
+  $('fr3d').style.display=is3d?'block':'none';
+  $('frMap').style.display=is3d?'none':'block';
+  $('hint').textContent=is3d
+    ?'DRAG TO ORBIT · SCROLL TO ZOOM · TAP A TABLE TO SELECT'
+    :'SCROLL THE POSTER · TAP A SECTION TO SELECT';
+}
+$('tab3d').addEventListener('click',()=>showTab('3d'));
+$('tabMap').addEventListener('click',()=>showTab('map'));
+
+/* messages from the embedded pickers */
+window.addEventListener('message',e=>{
+  const okOrigin=(e.origin===window.location.origin)||window.location.protocol==='file:';
+  if(!okOrigin)return;
+  const d=e.data;
+  if(!d||typeof d.type!=='string'||d.type.indexOf('tng-')!==0)return;
+  if(d.type==='tng-3d-select'||d.type==='tng-map-select'){
+    setSelection(d.sectionId?String(d.sectionId).toUpperCase():null);
+  }
+  if(d.type==='tng-3d-request'||d.type==='tng-map-request'){
+    setSelection(String(d.sectionId).toUpperCase());
+    openModal();
+  }
+});
+
+function setSelection(id){
+  if(id&&!SECTIONS[id])return;
+  selected=id;
+  if(!id){$('selBar').classList.remove('open');return;}
+  const s=SECTIONS[id],c=CATS[s.cat];
+  const pax=s.pax||c.pax,min=s.min||c.min;
+  $('selDot').style.background=c.color;$('selDot').style.color=c.color;
+  $('selName').textContent=c.label+' · '+id;
+  $('selMeta').textContent=pax+' guests · '+fmt(min)+' minimum';
+  $('selBar').classList.add('open');
+}
+
+/* modal */
+function openModal(){
+  if(!selected)return;
+  const s=SECTIONS[selected],c=CATS[s.cat];
+  $('mSub').textContent=c.label+' · '+selected+' — '+fmt(s.min||c.min)+' minimum';
+  $('fParty').placeholder=String(s.pax||c.pax);
+  $('veil').classList.add('open');
+}
+function closeModal(){$('veil').classList.remove('open');}
+$('selBtn').addEventListener('click',openModal);
+$('mX').addEventListener('click',closeModal);
+$('veil').addEventListener('click',e=>{if(e.target===$('veil'))closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+$('mSend').addEventListener('click',()=>{
+  const name=$('fName'),phone=$('fPhone');
+  let ok=true;
+  [name,phone].forEach(f=>{
+    if(!f.value.trim()){f.classList.add('err');ok=false;}
+    else f.classList.remove('err');
+  });
+  if(!ok)return;
+  const s=SECTIONS[selected],c=CATS[s.cat];
+  const payload={
+    venue:'tongue-and-groove-atl',
+    section:selected,
+    sectionName:c.label,
+    minimum:s.min||c.min,
+    name:name.value.trim(),
+    phone:phone.value.trim(),
+    email:$('fEmail').value.trim(),
+    partySize:$('fParty').value.trim()||String(s.pax||c.pax),
+    date:$('fDate').value,
+    notes:$('fNotes').value.trim(),
+    submittedAt:new Date().toISOString()
+  };
+  /* ── wire this to your backend ───────────────────────────────
+     fetch('/api/vip-request',{method:'POST',
+       headers:{'Content-Type':'application/json'},
+       body:JSON.stringify(payload)});
+     ───────────────────────────────────────────────────────────── */
+  console.log('TNG_BOOKING_REQUEST',payload);
+  closeModal();
+  ['fName','fPhone','fEmail','fParty','fDate','fNotes'].forEach(id=>$(id).value='');
+  toast('Request received for '+selected+' — our VIP team will reach out to confirm.');
+});
+
+let toastT=null;
+function toast(msg){
+  const t=$('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),3200);
+}
+</script>
+</body>
+</html>
