@@ -1,26 +1,19 @@
 import Reveal from "./Reveal.jsx";
-import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
 
 /**
  * N° 006 — Visit / Find Us.
  * Statement + action buttons on the left, hairline detail rows
- * (address / hours / shop online / follow) on the right, and a
+ * (address / fitment / follow) on the right, and a
  * full-width image below.
  */
 const DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=4849+Buford+Hwy,+Peachtree+Corners,+GA+30071";
 const MAP_URL =
   "https://www.google.com/maps/search/?api=1&query=4849+Buford+Hwy+Peachtree+Corners+GA+30071";
-const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeGJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
-
 const DETAILS = [
   {
     k: "Location",
     lines: ["4849 Buford Hwy", "Peachtree Corners, GA 30071"],
-  },
-  {
-    k: "Shop Online",
-    lines: ["Browse the full catalog and check out securely at", "thespeedfoundry-cuvfktu9.myshopify.com."],
   },
   {
     k: "Fitment Help",
@@ -51,7 +44,7 @@ export default function PlanVisit() {
             <Reveal delay={200}>
               <p className="mt-7 max-w-md text-sm leading-relaxed text-sand/75 md:text-base">
                 Find us on Buford Highway in Peachtree Corners, Georgia — or
-                shop the full catalog online and we'll get your parts moving.
+                message us on Instagram and we'll get your parts moving.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -63,14 +56,6 @@ export default function PlanVisit() {
                   className="btn btn-solid"
                 >
                   Get Directions
-                </a>
-                <a
-                  href={SHOP_URL_SHARED}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-ghost"
-                >
-                  Shop Parts
                 </a>
               </div>
             </Reveal>

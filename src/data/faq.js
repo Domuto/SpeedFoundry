@@ -8,7 +8,7 @@
 export const faq = [
   {
     q: "Where is The Speed Foundry located?",
-    a: "We're on Buford Highway at 4849 Buford Hwy, Peachtree Corners, GA 30071. You can shop with us in person or online.",
+    a: "We're on Buford Highway at 4849 Buford Hwy, Peachtree Corners, GA 30071. Stop in and see us in person.",
   },
   {
     q: "What kind of parts do you carry?",
@@ -23,12 +23,12 @@ export const faq = [
     a: "Yes. Direct relationships and smart sourcing let us offer exclusive pricing you won't find on the big-box sites.",
   },
   {
-    q: "Can I order online?",
-    a: "Yes — browse the full catalog and check out securely at thespeedfoundry-cuvfktu9.myshopify.com. Use the Shop Parts button anywhere on this site.",
+    q: "Can I order parts?",
+    a: "Yes — DM @speedfoundry on Instagram or stop by the shop and we'll get your parts moving.",
   },
   {
     q: "Do you sell merch?",
-    a: "We do — tees and tank tops are available in the Swag section. Wear the Foundry.",
+    a: "We do — check out the tees and tank tops in the Swag section and ask us how to get one. Wear the Foundry.",
   },
   {
     q: "How do I confirm a part fits my car?",

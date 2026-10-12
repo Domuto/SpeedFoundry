@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Wordmark from "./Wordmark.jsx";
-import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
 
 /**
  * Fixed navigation.
@@ -10,11 +9,9 @@ import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
  *
  * Edit the LINKS array to add / remove nav items.
  */
-const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeWJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
-
 const LINKS = [
   { label: "About", value: "#about" },
-  { label: "Shop", value: "#categories" },
+  { label: "Parts", value: "#categories" },
   { label: "Why Us", value: "#services" },
   { label: "Merch", value: "#merch" },
   { label: "Gallery", value: "#gallery" },
@@ -80,15 +77,6 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-5">
-            {/* Shop Parts (desktop) */}
-            <a
-              href={SHOP_URL_SHARED}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-solid btn-sm hidden md:inline-flex"
-            >
-              Shop Parts
-            </a>
 
             {/* Hamburger (mobile) */}
             <button
@@ -142,14 +130,6 @@ export default function Navbar() {
         <div className="border-t border-bone/10 px-8 py-6">
           <p className="label mb-2">Visit</p>
           <p className="text-sm text-sand/80">4849 Buford Hwy — Peachtree Corners, GA</p>
-          <a
-            href={SHOP_URL_SHARED}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-solid btn-sm mt-4"
-          >
-            Shop Parts
-          </a>
         </div>
       </div>
     </>

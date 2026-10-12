@@ -1,12 +1,9 @@
 import Wordmark from "./Wordmark.jsx";
-import { SHOP_URL as SHOP_URL_SHARED, shopPath } from "../data/shop.js";
 
 /**
  * Footer — address, quick links, socials, copyright.
  */
 const YEAR = new Date().getFullYear();
-
-const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeWJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
 
 const EXPLORE = [
   { label: "About", href: "#about" },
@@ -15,16 +12,8 @@ const EXPLORE = [
   { label: "FAQ", href: "#faq" },
 ];
 
-const SHOP = [
-  { label: "Engine", href: shopPath("/collections/engine") },
-  { label: "Exhaust", href: shopPath("/collections/exhaust") },
-  { label: "Suspension", href: shopPath("/collections/suspension-1") },
-  { label: "Intakes", href: shopPath("/collections/intakes") },
-];
-
 const SOCIALS = [
   { label: "Instagram", href: "https://www.instagram.com/speedfoundry/" },
-  { label: "Online Store", href: SHOP_URL_SHARED },
 ];
 
 export default function Footer() {
@@ -72,25 +61,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Shop links */}
-          <div className="md:col-span-2">
-            <p className="label mb-5">Shop</p>
-            <ul className="space-y-1">
-              {SHOP.map((l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block py-1 text-sm text-sand/70 transition-colors duration-300 hover:text-gold"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Socials */}
           <div className="md:col-span-3">
             <p className="label mb-5">Follow</p>
@@ -113,17 +83,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-[11px] uppercase tracking-[0.25em] text-sand/50">
-              Ready to shop?
-            </p>
-            <a
-              href={SHOP_URL_SHARED}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-solid btn-sm mt-3"
-            >
-              Shop Parts
-            </a>
           </div>
         </div>
 

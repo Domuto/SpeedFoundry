@@ -8,9 +8,6 @@
  * entrance (see .hero-el / .is-in in index.css).
  */
 import { useState } from "react";
-import { SHOP_URL as SHOP_URL_SHARED } from "../data/shop.js";
-
-const SHOP_URL = "https://thespeedfoundry-cuvfktu9.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaXQwYUdWemNHVmxaR1p2ZFc1a2Nua3RZM1YyWm10MGRUa3ViWGx6YUc5d2FXWjVMbU52YlFZNkJrVlUiLCJleHAiOiIyMDI2LTA4LTI3VDAyOjM0OjA4LjUwNloiLCJwdXIiOiJwZXJtYW5lbnRfcGFzc3dvcmRfeWJ5cGFzcyJ9fQ%3D%3D--a9f9cf6441d8c48a48a24871686241771eec854c&_cd=8800ed06eb2b427f61d5d6b55e9e62daa5220cfb595878200bd9e2410db15fe2&_uid=141529743526&preview_theme_id=197153718438&preview_token=cpi9k6pokejci100lubuasqyxkhyhqd3";
 
 const BACKDROPS = {
   engine: "/images/sf/engine.jpg",
@@ -122,10 +119,7 @@ export default function Hero({ ready }) {
             "mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           )}
         >
-          <a href={SHOP_URL_SHARED} target="_blank" rel="noreferrer" className="btn btn-solid">
-            Shop Parts
-          </a>
-          <button onClick={() => scrollTo("#categories")} className="btn btn-ghost">
+          <button onClick={() => scrollTo("#categories")} className="btn btn-solid">
             Browse Categories
           </button>
         </div>
