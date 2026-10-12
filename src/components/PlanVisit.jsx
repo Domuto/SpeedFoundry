@@ -116,7 +116,7 @@ export default function PlanVisit() {
         <Reveal delay={150} className="mt-20">
           <div className="relative h-72 overflow-hidden md:h-96">
             <img
-              src="/images/sf/exhaust.jpg"
+              src="/images/sf/shop-floor.jpg"
               alt="The Speed Foundry — Peachtree Corners, Georgia"
               className="h-full w-full object-cover"
             />

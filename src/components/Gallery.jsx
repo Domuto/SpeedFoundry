@@ -6,12 +6,18 @@ import Reveal from "./Reveal.jsx";
  * paths in IMAGES for updated photos as they come in.
  */
 const IMAGES = [
-  "/images/sf/engine.jpg",
-  "/images/sf/exhaust.jpg",
-  "/images/sf/suspension.jpg",
-  "/images/sf/intakes.jpg",
-  "/images/sf/merch-tee-front.png",
-  "/images/sf/merch-tank.jpg",
+  { src: "/images/sf/shop-floor.jpg", alt: "Inside The Speed Foundry shop floor" },
+  { src: "/images/sf/lifestyle-mustang-wing.jpg", alt: "Speed Foundry tee with the track Mustang" },
+  { src: "/images/sf/crew.jpg", alt: "The Speed Foundry crew in matching tees" },
+  { src: "/images/sf/engine.jpg", alt: "Performance engine components" },
+  { src: "/images/sf/lifestyle-evo-lean.jpg", alt: "Blue Lancer Evolution at the shop" },
+  { src: "/images/sf/lifestyle-crouch.jpg", alt: "Mechanic checking the Speed Foundry Mustang" },
+  { src: "/images/sf/lifestyle-mustang-front.jpg", alt: "Speed Foundry tee in front of the Mustang" },
+  { src: "/images/sf/suspension.jpg", alt: "Performance suspension components" },
+  { src: "/images/sf/lifestyle-engine-bay.jpg", alt: "Under the hood of the Evolution" },
+  { src: "/images/sf/lifestyle-evo-walk.jpg", alt: "Walking up to the Lancer Evolution" },
+  { src: "/images/sf/lifestyle-garage.jpg", alt: "Speed Foundry tee outside the garage" },
+  { src: "/images/sf/lifestyle-mustang-back.jpg", alt: "Speed Foundry back graphic tee" },
 ];
 
 const INSTAGRAM_URL = "https://www.instagram.com/speedfoundry/";
@@ -50,7 +56,7 @@ export default function Gallery() {
 
       {/* Square grid */}
       <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3">
-        {IMAGES.map((src, i) => (
+        {IMAGES.map(({ src, alt }, i) => (
           <Reveal key={src} delay={(i % 3) * 80}>
             <a
               href={INSTAGRAM_URL}
@@ -60,7 +66,8 @@ export default function Gallery() {
             >
               <img
                 src={src}
-                alt={`The Speed Foundry — gallery ${i + 1}`}
+                alt={alt}
+                loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink/0 transition-colors duration-500 group-hover:bg-ink/45">
