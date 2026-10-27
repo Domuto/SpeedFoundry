@@ -8,6 +8,7 @@
  * entrance (see .hero-el / .is-in in index.css).
  */
 import { useState } from "react";
+import BookButton from "./BookButton.jsx";
 
 const BACKDROPS = {
   engine: "/images/sf/engine.jpg",
@@ -119,7 +120,8 @@ export default function Hero({ ready }) {
             "mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           )}
         >
-          <button onClick={() => scrollTo("#categories")} className="btn btn-solid">
+          <BookButton />
+          <button onClick={() => scrollTo("#categories")} className="btn btn-ghost">
             Browse Categories
           </button>
         </div>

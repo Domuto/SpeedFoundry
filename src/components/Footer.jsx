@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom";
 import Wordmark from "./Wordmark.jsx";
 
 /**
@@ -10,6 +11,7 @@ const EXPLORE = [
   { label: "Why Us", href: "#services" },
   { label: "Merch", href: "#merch" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const SOCIALS = [
@@ -17,6 +19,8 @@ const SOCIALS = [
 ];
 
 export default function Footer() {
+  const { pathname } = useLocation();
+
   return (
     <footer className="border-t border-bone/10">
       <div className="px-6 py-16 md:px-12 lg:px-20">
@@ -50,12 +54,21 @@ export default function Footer() {
             <ul className="space-y-1">
               {EXPLORE.map((l) => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
-                    className="block py-1 text-sm text-sand/70 transition-colors duration-300 hover:text-gold"
-                  >
-                    {l.label}
-                  </a>
+                  {l.href === "/blog" ? (
+                    <Link
+                      to="/blog"
+                      className="block py-1 text-sm text-sand/70 transition-colors duration-300 hover:text-gold"
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={pathname === "/" ? l.href : `/${l.href}`}
+                      className="block py-1 text-sm text-sand/70 transition-colors duration-300 hover:text-gold"
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -91,7 +104,7 @@ export default function Footer() {
           <p>© {YEAR} The Speed Foundry — All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a
-              href="#top"
+              href={pathname === "/" ? "#top" : "/"}
               className="inline-flex items-center gap-2 transition-colors duration-300 hover:text-gold"
             >
               Back to Top

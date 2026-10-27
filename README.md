@@ -33,6 +33,21 @@ npm run preview
 - src/data — value props (nightlyEvents.js) and FAQ (faq.js)
 - src/components — one file per section
 
+## Blog
+
+The blog is available at `/blog`; use **Manage posts** to create, edit, or
+delete posts and upload a cover image. Post content and compressed images are
+saved in this browser's IndexedDB. They do not sync to another device or appear
+to other visitors. The editor has no sign-in, so this is intended for local
+preview and personal use rather than publishing shared website content.
+
+## Appointment scheduler (AutoOps)
+
+The AutoOps script is loaded at the end of `<body>` in `index.html`. Any
+`<BookButton />` (`src/components/BookButton.jsx`) opens the scheduler via
+`AutoOps.show()`; it currently appears in the navbar, hero, and Visit section.
+If the script fails to load, the button opens Instagram instead.
+
 ## Sections
 
 Hero → About (`Story`) → Shop by Category (`Spaces`) → Why Us

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Wordmark from "./Wordmark.jsx";
+import BookButton from "./BookButton.jsx";
 
 /**
  * Fixed navigation.
@@ -16,11 +18,14 @@ const LINKS = [
   { label: "Merch", value: "#merch" },
   { label: "Gallery", value: "#gallery" },
   { label: "FAQ", value: "#faq" },
+  { label: "Blog", value: "/blog" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isBlog = pathname.startsWith("/blog");
 
   // Swap to the solid bar after 40px of scroll.
   useEffect(() => {
@@ -38,11 +43,6 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const scrollTo = (selector) => {
-    setOpen(false);
-    document.querySelector(selector)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
       <header
@@ -54,29 +54,51 @@ export default function Navbar() {
       >
         <nav className="flex items-center justify-between px-6 py-5 md:px-12 lg:px-20">
           {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="flex cursor-pointer items-center gap-2 text-left"
-            aria-label="The Speed Foundry — back to top"
-          >
-            <Wordmark stacked={false} className="text-xl md:text-2xl" />
-          </button>
+          {isBlog ? (
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-left"
+              aria-label="The Speed Foundry — home"
+            >
+              <Wordmark stacked={false} className="text-xl md:text-2xl" />
+            </Link>
+          ) : (
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex cursor-pointer items-center gap-2 text-left"
+              aria-label="The Speed Foundry — back to top"
+            >
+              <Wordmark stacked={false} className="text-xl md:text-2xl" />
+            </button>
+          )}
 
           {/* Desktop links */}
           <ul className="hidden items-center gap-8 lg:flex">
             {LINKS.map((link) => (
               <li key={link.label}>
-                <button
-                  onClick={() => scrollTo(link.value)}
-                  className="cursor-pointer text-[11px] font-semibold uppercase tracking-[0.22em] text-bone/85 transition-colors duration-300 hover:text-gold"
-                >
-                  {link.label}
-                </button>
+                {link.value === "/blog" ? (
+                  <Link
+                    to="/blog"
+                    className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bone/85 transition-colors duration-300 hover:text-gold"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={isBlog ? `/${link.value}` : link.value}
+                    className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bone/85 transition-colors duration-300 hover:text-gold"
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
 
           <div className="flex items-center gap-5">
+            <BookButton className="btn btn-solid btn-sm hidden sm:inline-flex">
+              Book Now
+            </BookButton>
 
             {/* Hamburger (mobile) */}
             <button
@@ -98,7 +120,21 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between border-b border-bone/10 px-6 py-5">
-          <Wordmark stacked={false} className="text-lg" />
+          {isBlog ? (
+            <Link to="/" onClick={() => setOpen(false)} aria-label="The Speed Foundry — home">
+              <Wordmark stacked={false} className="text-lg" />
+            </Link>
+          ) : (
+            <button
+              onClick={() => {
+                setOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              aria-label="The Speed Foundry — back to top"
+            >
+              <Wordmark stacked={false} className="text-lg" />
+            </button>
+          )}
           <button
             onClick={() => setOpen(false)}
             className="cursor-pointer text-[11px] uppercase tracking-[0.3em] text-sand transition-colors hover:text-gold"
@@ -117,17 +153,32 @@ export default function Navbar() {
                 open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
               }`}
             >
-              <button
-                onClick={() => scrollTo(link.value)}
-                className="cursor-pointer py-2 font-display text-4xl font-light text-bone transition-colors duration-300 hover:text-gold"
-              >
-                {link.label}
-              </button>
+              {link.value === "/blog" ? (
+                <Link
+                  to="/blog"
+                  onClick={() => setOpen(false)}
+                  className="block py-2 font-display text-4xl font-light text-bone transition-colors duration-300 hover:text-gold"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  href={isBlog ? `/${link.value}` : link.value}
+                  onClick={() => setOpen(false)}
+                  className="block py-2 font-display text-4xl font-light text-bone transition-colors duration-300 hover:text-gold"
+                >
+                  {link.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
 
         <div className="border-t border-bone/10 px-8 py-6">
+          <BookButton
+            className="btn btn-solid mb-6 w-full"
+            onClick={() => setOpen(false)}
+          />
           <p className="label mb-2">Visit</p>
           <p className="text-sm text-sand/80">4849 Buford Hwy — Peachtree Corners, GA</p>
         </div>

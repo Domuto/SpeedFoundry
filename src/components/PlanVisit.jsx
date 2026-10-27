@@ -1,4 +1,5 @@
 import Reveal from "./Reveal.jsx";
+import BookButton from "./BookButton.jsx";
 
 /**
  * N° 006 — Visit / Find Us.
@@ -53,10 +54,11 @@ export default function PlanVisit() {
                   href={DIRECTIONS_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn btn-solid"
+                  className="btn btn-ghost"
                 >
                   Get Directions
                 </a>
+                <BookButton />
               </div>
             </Reveal>
           </div>

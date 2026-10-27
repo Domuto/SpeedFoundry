@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 
-import Loader from "./components/Loader.jsx";
 import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
+import Loader from "./components/Loader.jsx";
 import Hero from "./components/Hero.jsx";
 import Story from "./components/Story.jsx";
 import Spaces from "./components/Spaces.jsx";
@@ -11,7 +13,7 @@ import Gallery from "./components/Gallery.jsx";
 import PlanVisit from "./components/PlanVisit.jsx";
 import Faq from "./components/Faq.jsx";
 import Contact from "./components/Contact.jsx";
-import Footer from "./components/Footer.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
 
 /**
  * ============================================================
@@ -23,7 +25,7 @@ import Footer from "./components/Footer.jsx";
  *
  * Section order lives in the JSX below — reorder freely.
  */
-export default function App() {
+function HomePage() {
   const [loading, setLoading] = useState(true);
 
   // Lock page scroll while the loader is covering the screen.
@@ -38,8 +40,6 @@ export default function App() {
     <>
       {loading && <Loader onDone={() => setLoading(false)} />}
 
-      <Navbar />
-
       <main>
         <Hero ready={!loading} />
         <Story />
@@ -51,9 +51,33 @@ export default function App() {
         <Faq />
         <Contact />
       </main>
-
-      <Footer />
     </>
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+export default function App() {
+  return (
+    <>
+      <ScrollToTop />
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/manage" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPage />} />
+        <Route path="*" element={<main className="min-h-screen pt-40 text-center">Page not found</main>} />
+      </Routes>
+      <Footer />
+    </>
+  );
+}
